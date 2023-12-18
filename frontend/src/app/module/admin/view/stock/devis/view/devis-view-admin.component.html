@@ -1,0 +1,86 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'devis.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'devis.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'devis.numero' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'devis.numero' | translate}}" autofocus  id="1" [(ngModel)]="item.numero">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'devis.dateDevis' | translate}}</label>
+                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'devis.dateDevis' | translate}}"  [(ngModel)]="item.dateDevis" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'devis.client' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'devis.client' | translate}}" autofocus  id="3" [(ngModel)]="item.client?.telephone">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'devis.montantHt' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'devis.montantHt' | translate}}" [(ngModel)]="item.montantHt"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'devis.montantTva' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'devis.montantTva' | translate}}" [(ngModel)]="item.montantTva"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'devis.montantTtc' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'devis.montantTtc' | translate}}" [(ngModel)]="item.montantTtc"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'devis.description' | translate}}</label>
+                        <textarea id="7" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'devis.description' | translate}}"  [(ngModel)]="item.description"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'devis.devisItems' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.devisItems" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Quantite</th>
+                                        <th>Prix unitaire ht</th>
+                                        <th>Taxe</th>
+                                        <th>Prix unitaire ttc</th>
+                                        <th>Remise</th>
+                                        <th>Montant ht</th>
+                                        <th>Montant ttc</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.produit?.designation}}</td>
+                                        <td>{{p.quantite}}</td>
+                                        <td>{{p.prixUnitaireHt}}</td>
+                                        <td>{{p.taxe?.libelle}}</td>
+                                        <td>{{p.prixUnitaireTtc}}</td>
+                                        <td>{{p.remise}}</td>
+                                        <td>{{p.montantHt}}</td>
+                                        <td>{{p.montantTtc}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="grid-footer">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

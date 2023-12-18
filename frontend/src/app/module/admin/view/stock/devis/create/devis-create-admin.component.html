@@ -1,0 +1,185 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'devis.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'devis.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'devis.numero' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'devis.numero' | translate}}" id="1" [(ngModel)]="item.numero"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validDevisNumero}"  />
+                                                    <small class='p-error' *ngIf='!validDevisNumero'>Numero est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'devis.dateDevis' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'devis.dateDevis' | translate}}"  [(ngModel)]="item.dateDevis"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validDevisDateDevis}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validDevisDateDevis'>DateDevis est obligatoire.</small>
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="3">{{'devis.client' | translate}}<span style="color: red;">*</span></label>
+                                                <p-dropdown  appendTo="body"  [options]="clients" [(ngModel)]="item.client" id="3" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="telephone" placeholder="{{'devis.client' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validDevisClient}"  >
+                                                </p-dropdown>
+                                                <small class='p-error' *ngIf='!validDevisClient'>Client est obligatoire.</small>
+                                            </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'devis.montantHt' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'devis.montantHt' | translate}}" [(ngModel)]="item.montantHt" [ngClass]="{'ng-invalid ng-dirty' : !validDevisMontantHt}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validDevisMontantHt'>MontantHt est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="5">{{'devis.montantTva' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'devis.montantTva' | translate}}" [(ngModel)]="item.montantTva" [ngClass]="{'ng-invalid ng-dirty' : !validDevisMontantTva}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validDevisMontantTva'>MontantTva est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="6">{{'devis.montantTtc' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'devis.montantTtc' | translate}}" [(ngModel)]="item.montantTtc" [ngClass]="{'ng-invalid ng-dirty' : !validDevisMontantTtc}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validDevisMontantTtc'>MontantTtc est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="7">{{'devis.description' | translate}}</label>
+                                                    <textarea id="7" pInputTextarea rows="5" cols="30" placeholder="{{'devis.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                </div>
+                            </p-tabPanel>
+                                    <p-tabPanel header="{{'devis.devisItems' | translate}}">
+                                        <p-tabView [(activeIndex)]="activeTab">
+                                            <p-tabPanel header="Création">
+                                                    <div class="grid">
+                                                                    <div class="field col-11 md:col-5">
+                                                                        <label>Produit<span style="color: red;">*</span></label>
+                                                                        <p-dropdown  appendTo="body"  [options]="produits" [(ngModel)]="devisItemsElement.produit"
+                                                                                     id="1"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="designation"
+                                                                                     placeholder="Produit"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsProduit}" >
+                                                                        </p-dropdown>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsProduit'>Produit est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <label></label>
+                                                                        <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateProduit('produit')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="2">Quantite<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="quantite" placeholder="Quantite"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsQuantite}" [(ngModel)]="devisItemsElement.quantite"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsQuantite'>Quantite est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="3">Prix unitaire ht<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="prixUnitaireHt" placeholder="Prix unitaire ht"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsPrixUnitaireHt}" [(ngModel)]="devisItemsElement.prixUnitaireHt"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsPrixUnitaireHt'>PrixUnitaireHt est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-11 md:col-5">
+                                                                        <label>Taxe</label>
+                                                                        <p-dropdown  appendTo="body"  [options]="taxes" [(ngModel)]="devisItemsElement.taxe"
+                                                                                     id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                                     placeholder="Taxe"  >
+                                                                        </p-dropdown>
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <label></label>
+                                                                        <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTaxe('taxe')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="5">Prix unitaire ttc<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="prixUnitaireTtc" placeholder="Prix unitaire ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsPrixUnitaireTtc}" [(ngModel)]="devisItemsElement.prixUnitaireTtc"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsPrixUnitaireTtc'>PrixUnitaireTtc est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="6">Remise<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="remise" placeholder="Remise"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsRemise}" [(ngModel)]="devisItemsElement.remise"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsRemise'>Remise est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="7">Montant ht<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="montantHt" placeholder="Montant ht"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsMontantHt}" [(ngModel)]="devisItemsElement.montantHt"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsMontantHt'>MontantHt est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="8">Montant ttc<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="montantTtc" placeholder="Montant ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validDevisItemsMontantTtc}" [(ngModel)]="devisItemsElement.montantTtc"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validDevisItemsMontantTtc'>MontantTtc est obligatoire.</small>
+                                                                    </div>
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDevisItems()"></button>
+                                                        </div>
+
+                                                    </div>
+                                            </p-tabPanel>
+                                            <p-tabPanel header="Liste {{item.devisItems?.length > 0 ? '(' + item.devisItems?.length + ')' : ''}}">
+                                                    <div class="card">
+                                                        <p-table [value]="item.devisItems" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>Produit</th>
+                                                                                <th>Quantite</th>
+                                                                                <th>Prix unitaire ht</th>
+                                                                                <th>Taxe</th>
+                                                                                <th>Prix unitaire ttc</th>
+                                                                                <th>Remise</th>
+                                                                                <th>Montant ht</th>
+                                                                                <th>Montant ttc</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                            <td>{{p.produit?.designation}}</td>
+                                                                                <td>{{p.quantite}}</td>
+                                                                                <td>{{p.prixUnitaireHt}}</td>
+                                                                            <td>{{p.taxe?.libelle}}</td>
+                                                                                <td>{{p.prixUnitaireTtc}}</td>
+                                                                                <td>{{p.remise}}</td>
+                                                                                <td>{{p.montantHt}}</td>
+                                                                                <td>{{p.montantTtc}}</td>
+                                                                    <td>
+                                                                        <button (click)="deleteDevisItems(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editDevisItems(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                            </p-tabPanel>
+                                        </p-tabView>
+                                    </p-tabPanel>
+
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+
+            <app-produit-create-admin></app-produit-create-admin>
+            <app-taxe-create-admin></app-taxe-create-admin>
+
+    </p-dialog>

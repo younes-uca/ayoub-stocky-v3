@@ -1,0 +1,134 @@
+        <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'avoirAchatItem.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'avoirAchatItem.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'avoirAchatItem.barCode' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'avoirAchatItem.barCode' | translate}}" id="1" [(ngModel)]="item.barCode"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemBarCode}"  />
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemBarCode'>BarCode est obligatoire.</small>
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'avoirAchatItem.depot' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="depots" [(ngModel)]="item.depot" id="2" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'avoirAchatItem.depot' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemDepot}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validAvoirAchatItemDepot'>Depot est obligatoire.</small>
+                                    </div>
+                                    <div class="field col-11 md:col-5">
+                                        <label for="3">{{'avoirAchatItem.produit' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="produits" [(ngModel)]="item.produit" id="3" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="designation" placeholder="{{'avoirAchatItem.produit' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemProduit}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validAvoirAchatItemProduit'>Produit est obligatoire.</small>
+                                    </div>
+                                        <div class="col-1">
+                                            <label></label>
+                                            <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateProduit('Produit')" class="p-button-success one-colonne-btn-success-align"></button>
+                                        </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'avoirAchatItem.quantite' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'avoirAchatItem.quantite' | translate}}" [(ngModel)]="item.quantite" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemQuantite}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemQuantite'>Quantite est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'avoirAchatItem.quantiteAvoir' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'avoirAchatItem.quantiteAvoir' | translate}}" [(ngModel)]="item.quantiteAvoir"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'avoirAchatItem.quantiteVendue' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'avoirAchatItem.quantiteVendue' | translate}}" [(ngModel)]="item.quantiteVendue" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemQuantiteVendue}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemQuantiteVendue'>QuantiteVendue est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'avoirAchatItem.prixUnitaireHt' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'avoirAchatItem.prixUnitaireHt' | translate}}" [(ngModel)]="item.prixUnitaireHt" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemPrixUnitaireHt}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemPrixUnitaireHt'>PrixUnitaireHt est obligatoire.</small>
+                                        </div>
+
+                                    <div class="field col-11 md:col-5">
+                                        <label for="8">{{'avoirAchatItem.taxe' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="taxes" [(ngModel)]="item.taxe" id="8" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'avoirAchatItem.taxe' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="col-1">
+                                            <label></label>
+                                            <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTaxe('Taxe')" class="p-button-success one-colonne-btn-success-align"></button>
+                                        </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="9">{{'avoirAchatItem.prixUnitaireTtc' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="9" placeholder="{{'avoirAchatItem.prixUnitaireTtc' | translate}}" [(ngModel)]="item.prixUnitaireTtc" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemPrixUnitaireTtc}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemPrixUnitaireTtc'>PrixUnitaireTtc est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="10">{{'avoirAchatItem.remise' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="10" placeholder="{{'avoirAchatItem.remise' | translate}}" [(ngModel)]="item.remise" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemRemise}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemRemise'>Remise est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="11">{{'avoirAchatItem.montantHt' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="11" placeholder="{{'avoirAchatItem.montantHt' | translate}}" [(ngModel)]="item.montantHt" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemMontantHt}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemMontantHt'>MontantHt est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="12">{{'avoirAchatItem.montantTtc' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="12" placeholder="{{'avoirAchatItem.montantTtc' | translate}}" [(ngModel)]="item.montantTtc" [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatItemMontantTtc}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAvoirAchatItemMontantTtc'>MontantTtc est obligatoire.</small>
+                                        </div>
+
+                                    <div class="field col-11 md:col-5">
+                                        <label for="13">{{'avoirAchatItem.avoirAchat' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="avoirAchats" [(ngModel)]="item.avoirAchat" id="13" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="numeroFactureAvoirFournisseur" placeholder="{{'avoirAchatItem.avoirAchat' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="col-1">
+                                            <label></label>
+                                            <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateAvoirAchat('AvoirAchat')" class="p-button-success one-colonne-btn-success-align"></button>
+                                        </div>
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-footer">
+                        <div>
+                            <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="Valider" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+                    <app-produit-create-admin></app-produit-create-admin>
+                    <app-taxe-create-admin></app-taxe-create-admin>
+                    <app-avoir-achat-create-admin></app-avoir-achat-create-admin>
+
+
+    </p-dialog>

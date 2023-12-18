@@ -1,0 +1,1315 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "Nouveau",
+    "search": "Chercher",
+    "export": "Exporter",
+    "validate": "Validater",
+    "search": "Chercher...",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Sauvgarder",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "creation": "Creation",
+    "list": "Liste",
+
+
+    "proprietaire":{
+        "nom": "Nom",
+        "telephone": "Telephone",
+        "adresse": "Adresse",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "proprietaire": "Proprietaire",
+        "tabPan": "Proprietaire",
+        "header": "Liste des proprietaires",
+        "deleteProprietaireConfirmationMessage": "Voulez vous vraiment supprimer proprietaire",
+        "deleteProprietairesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatTransaction":{
+        "libelle": "Libelle",
+        "etatTransaction": "Etat transaction",
+        "tabPan": "Etat transaction",
+        "header": "Liste des etat transactions",
+        "deleteEtatTransactionConfirmationMessage": "Voulez vous vraiment supprimer etat transaction",
+        "deleteEtatTransactionsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "avoirVente":{
+        "barCode": "Bar code",
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "codeAvoirVente": "Code avoir vente",
+        "numeroFactureAvoirVente": "Numero facture avoir vente",
+        "dateFactureAvoirVente": "Date facture avoir vente",
+        "dateFactureAvoirVenteMin": "Date facture avoir vente Min",
+        "dateFactureAvoirVenteMax": "Date facture avoir vente Max",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "etatAvoirVente": "Etat avoir vente",
+        "etatAvoirVentePlaceHolder": "Select a Etat avoir vente",
+        "etatAvoirVentePlaceHolderFilter": "Search by Etat avoir vente",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "avoirVenteItems": "Avoir vente items",
+        "avoirVente": "Avoir vente",
+        "tabPan": "Avoir vente",
+        "header": "Liste des avoir ventes",
+        "deleteAvoirVenteConfirmationMessage": "Voulez vous vraiment supprimer avoir vente",
+        "deleteAvoirVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "sortieProduitItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "description": "Description",
+        "sortieProduit": "Sortie produit",
+        "sortieProduitPlaceHolder": "Select a Sortie produit",
+        "sortieProduitPlaceHolderFilter": "Search by Sortie produit",
+        "sortieProduitItem": "Sortie produit item",
+        "tabPan": "Sortie produit item",
+        "header": "Liste des sortie produit items",
+        "deleteSortieProduitItemConfirmationMessage": "Voulez vous vraiment supprimer sortie produit item",
+        "deleteSortieProduitItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "reglementVente":{
+        "reference": "Reference",
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "description": "Description",
+        "reglementVente": "Reglement vente",
+        "tabPan": "Reglement vente",
+        "header": "Liste des reglement ventes",
+        "deleteReglementVenteConfirmationMessage": "Voulez vous vraiment supprimer reglement vente",
+        "deleteReglementVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "proprietaireBanque":{
+        "proprietaire": "Proprietaire",
+        "proprietairePlaceHolder": "Select a Proprietaire",
+        "proprietairePlaceHolderFilter": "Search by Proprietaire",
+        "banque": "Banque",
+        "banquePlaceHolder": "Select a Banque",
+        "banquePlaceHolderFilter": "Search by Banque",
+        "compte": "Compte",
+        "comptePlaceHolder": "Select a Compte",
+        "comptePlaceHolderFilter": "Search by Compte",
+        "proprietaireBanque": "Proprietaire banque",
+        "tabPan": "Proprietaire banque",
+        "header": "Liste des proprietaire banques",
+        "deleteProprietaireBanqueConfirmationMessage": "Voulez vous vraiment supprimer proprietaire banque",
+        "deleteProprietaireBanquesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "modeReglement":{
+        "libelle": "Libelle",
+        "modeReglement": "Mode reglement",
+        "tabPan": "Mode reglement",
+        "header": "Liste des mode reglements",
+        "deleteModeReglementConfirmationMessage": "Voulez vous vraiment supprimer mode reglement",
+        "deleteModeReglementsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "taxe":{
+        "libelle": "Libelle",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "taxe": "Taxe",
+        "tabPan": "Taxe",
+        "header": "Liste des taxes",
+        "deleteTaxeConfirmationMessage": "Voulez vous vraiment supprimer taxe",
+        "deleteTaxesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "entreeProduit":{
+        "reference": "Reference",
+        "dateEntreeProduit": "Date entree produit",
+        "dateEntreeProduitMin": "Date entree produit Min",
+        "dateEntreeProduitMax": "Date entree produit Max",
+        "fournisseur": "Fournisseur",
+        "fournisseurPlaceHolder": "Select a Fournisseur",
+        "fournisseurPlaceHolderFilter": "Search by Fournisseur",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "description": "Description",
+        "entreeProduitItems": "Entree produit items",
+        "entreeProduit": "Entree produit",
+        "tabPan": "Entree produit",
+        "header": "Liste des entree produits",
+        "deleteEntreeProduitConfirmationMessage": "Voulez vous vraiment supprimer entree produit",
+        "deleteEntreeProduitsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "achatItem":{
+        "barCode": "Bar code",
+        "footerBarCode": "Footer bar code",
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "quantiteAvoir": "Quantite avoir",
+        "quantiteAvoirMin": "Quantite avoir Min",
+        "quantiteAvoirMax": "Quantite avoir Max",
+        "quantiteDisponible": "Quantite disponible",
+        "quantiteDisponibleMin": "Quantite disponible Min",
+        "quantiteDisponibleMax": "Quantite disponible Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "achatItem": "Achat item",
+        "tabPan": "Achat item",
+        "header": "Liste des achat items",
+        "deleteAchatItemConfirmationMessage": "Voulez vous vraiment supprimer achat item",
+        "deleteAchatItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "categorie":{
+        "libelle": "Libelle",
+        "categorie": "Categorie",
+        "tabPan": "Categorie",
+        "header": "Liste des categories",
+        "deleteCategorieConfirmationMessage": "Voulez vous vraiment supprimer categorie",
+        "deleteCategoriesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "commandeItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "commande": "Commande",
+        "commandePlaceHolder": "Select a Commande",
+        "commandePlaceHolderFilter": "Search by Commande",
+        "commandeItem": "Commande item",
+        "tabPan": "Commande item",
+        "header": "Liste des commande items",
+        "deleteCommandeItemConfirmationMessage": "Voulez vous vraiment supprimer commande item",
+        "deleteCommandeItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "reglementAvoirAchat":{
+        "reference": "Reference",
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "description": "Description",
+        "avoirAchat": "Avoir achat",
+        "avoirAchatPlaceHolder": "Select a Avoir achat",
+        "avoirAchatPlaceHolderFilter": "Search by Avoir achat",
+        "reglementAvoirAchat": "Reglement avoir achat",
+        "tabPan": "Reglement avoir achat",
+        "header": "Liste des reglement avoir achats",
+        "deleteReglementAvoirAchatConfirmationMessage": "Voulez vous vraiment supprimer reglement avoir achat",
+        "deleteReglementAvoirAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatAvoirVente":{
+        "libelle": "Libelle",
+        "etatAvoirVente": "Etat avoir vente",
+        "tabPan": "Etat avoir vente",
+        "header": "Liste des etat avoir ventes",
+        "deleteEtatAvoirVenteConfirmationMessage": "Voulez vous vraiment supprimer etat avoir vente",
+        "deleteEtatAvoirVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "achat":{
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "dateFacture": "Date facture",
+        "dateFactureMin": "Date facture Min",
+        "dateFactureMax": "Date facture Max",
+        "referenceFacture": "Reference facture",
+        "fournisseur": "Fournisseur",
+        "fournisseurPlaceHolder": "Select a Fournisseur",
+        "fournisseurPlaceHolderFilter": "Search by Fournisseur",
+        "etatAchat": "Etat achat",
+        "etatAchatPlaceHolder": "Select a Etat achat",
+        "etatAchatPlaceHolderFilter": "Search by Etat achat",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "achatItems": "Achat items",
+        "avoirAchats": "Avoir achats",
+        "achat": "Achat",
+        "tabPan": "Achat",
+        "header": "Liste des achats",
+        "deleteAchatConfirmationMessage": "Voulez vous vraiment supprimer achat",
+        "deleteAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "bonPourItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "bonPour": "Bon pour",
+        "bonPourPlaceHolder": "Select a Bon pour",
+        "bonPourPlaceHolderFilter": "Search by Bon pour",
+        "bonPourItem": "Bon pour item",
+        "tabPan": "Bon pour item",
+        "header": "Liste des bon pour items",
+        "deleteBonPourItemConfirmationMessage": "Voulez vous vraiment supprimer bon pour item",
+        "deleteBonPourItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatAvoirAchat":{
+        "libelle": "Libelle",
+        "etatAvoirAchat": "Etat avoir achat",
+        "tabPan": "Etat avoir achat",
+        "header": "Liste des etat avoir achats",
+        "deleteEtatAvoirAchatConfirmationMessage": "Voulez vous vraiment supprimer etat avoir achat",
+        "deleteEtatAvoirAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "depense":{
+        "dateDepense": "Date depense",
+        "dateDepenseMin": "Date depense Min",
+        "dateDepenseMax": "Date depense Max",
+        "libelle": "Libelle",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "description": "Description",
+        "depense": "Depense",
+        "tabPan": "Depense",
+        "header": "Liste des depenses",
+        "deleteDepenseConfirmationMessage": "Voulez vous vraiment supprimer depense",
+        "deleteDepensesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "venteItem":{
+        "barCode": "Bar code",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "quantiteAvoir": "Quantite avoir",
+        "quantiteAvoirMin": "Quantite avoir Min",
+        "quantiteAvoirMax": "Quantite avoir Max",
+        "quantiteVendue": "Quantite vendue",
+        "quantiteVendueMin": "Quantite vendue Min",
+        "quantiteVendueMax": "Quantite vendue Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "venteItem": "Vente item",
+        "tabPan": "Vente item",
+        "header": "Liste des vente items",
+        "deleteVenteItemConfirmationMessage": "Voulez vous vraiment supprimer vente item",
+        "deleteVenteItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "devis":{
+        "numero": "Numero",
+        "dateDevis": "Date devis",
+        "dateDevisMin": "Date devis Min",
+        "dateDevisMax": "Date devis Max",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "devisItems": "Devis items",
+        "devis": "Devis",
+        "tabPan": "Devis",
+        "header": "Liste des devis",
+        "deleteDevisConfirmationMessage": "Voulez vous vraiment supprimer devis",
+        "deleteDevissConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "depot":{
+        "libelle": "Libelle",
+        "adresse": "Adresse",
+        "depot": "Depot",
+        "tabPan": "Depot",
+        "header": "Liste des depots",
+        "deleteDepotConfirmationMessage": "Voulez vous vraiment supprimer depot",
+        "deleteDepotsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "avoirAchatItem":{
+        "barCode": "Bar code",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "quantiteAvoir": "Quantite avoir",
+        "quantiteAvoirMin": "Quantite avoir Min",
+        "quantiteAvoirMax": "Quantite avoir Max",
+        "quantiteVendue": "Quantite vendue",
+        "quantiteVendueMin": "Quantite vendue Min",
+        "quantiteVendueMax": "Quantite vendue Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "avoirAchat": "Avoir achat",
+        "avoirAchatPlaceHolder": "Select a Avoir achat",
+        "avoirAchatPlaceHolderFilter": "Search by Avoir achat",
+        "avoirAchatItem": "Avoir achat item",
+        "tabPan": "Avoir achat item",
+        "header": "Liste des avoir achat items",
+        "deleteAvoirAchatItemConfirmationMessage": "Voulez vous vraiment supprimer avoir achat item",
+        "deleteAvoirAchatItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "reglementAchat":{
+        "reference": "Reference",
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "description": "Description",
+        "reglementAchat": "Reglement achat",
+        "tabPan": "Reglement achat",
+        "header": "Liste des reglement achats",
+        "deleteReglementAchatConfirmationMessage": "Voulez vous vraiment supprimer reglement achat",
+        "deleteReglementAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "inventaireItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantiteEstime": "Quantite estime",
+        "quantiteEstimeMin": "Quantite estime Min",
+        "quantiteEstimeMax": "Quantite estime Max",
+        "quantiteReelle": "Quantite reelle",
+        "quantiteReelleMin": "Quantite reelle Min",
+        "quantiteReelleMax": "Quantite reelle Max",
+        "inventaire": "Inventaire",
+        "inventairePlaceHolder": "Select a Inventaire",
+        "inventairePlaceHolderFilter": "Search by Inventaire",
+        "inventaireItem": "Inventaire item",
+        "tabPan": "Inventaire item",
+        "header": "Liste des inventaire items",
+        "deleteInventaireItemConfirmationMessage": "Voulez vous vraiment supprimer inventaire item",
+        "deleteInventaireItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "fournisseur":{
+        "ice": "Ice",
+        "nom": "Nom",
+        "telephone": "Telephone",
+        "adresse": "Adresse",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "fournisseur": "Fournisseur",
+        "tabPan": "Fournisseur",
+        "header": "Liste des fournisseurs",
+        "deleteFournisseurConfirmationMessage": "Voulez vous vraiment supprimer fournisseur",
+        "deleteFournisseursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "produit":{
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "reference": "Reference",
+        "barCode": "Bar code",
+        "categorie": "Categorie",
+        "categoriePlaceHolder": "Select a Categorie",
+        "categoriePlaceHolderFilter": "Search by Categorie",
+        "designation": "Designation",
+        "marque": "Marque",
+        "marquePlaceHolder": "Select a Marque",
+        "marquePlaceHolderFilter": "Search by Marque",
+        "uniteMesure": "Unite mesure",
+        "uniteMesurePlaceHolder": "Select a Unite mesure",
+        "uniteMesurePlaceHolderFilter": "Search by Unite mesure",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prixAchatMoyen": "Prix achat moyen",
+        "prixAchatMoyenMin": "Prix achat moyen Min",
+        "prixAchatMoyenMax": "Prix achat moyen Max",
+        "prixVente": "Prix vente",
+        "prixVenteMin": "Prix vente Min",
+        "prixVenteMax": "Prix vente Max",
+        "stocks": "Stocks",
+        "pathPhoto": "Path photo",
+        "seuilAlerte": "Seuil alerte",
+        "seuilAlerteMin": "Seuil alerte Min",
+        "seuilAlerteMax": "Seuil alerte Max",
+        "description": "Description",
+        "produit": "Produit",
+        "tabPan": "Produit",
+        "header": "Liste des produits",
+        "deleteProduitConfirmationMessage": "Voulez vous vraiment supprimer produit",
+        "deleteProduitsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "typeTransaction":{
+        "libelle": "Libelle",
+        "typeTransaction": "Type transaction",
+        "tabPan": "Type transaction",
+        "header": "Liste des type transactions",
+        "deleteTypeTransactionConfirmationMessage": "Voulez vous vraiment supprimer type transaction",
+        "deleteTypeTransactionsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "uniteMesure":{
+        "libelle": "Libelle",
+        "uniteMesure": "Unite mesure",
+        "tabPan": "Unite mesure",
+        "header": "Liste des unite mesures",
+        "deleteUniteMesureConfirmationMessage": "Voulez vous vraiment supprimer unite mesure",
+        "deleteUniteMesuresConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "stock":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "stock": "Stock",
+        "tabPan": "Stock",
+        "header": "Liste des stocks",
+        "deleteStockConfirmationMessage": "Voulez vous vraiment supprimer stock",
+        "deleteStocksConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "compte":{
+        "numeroCompte": "Numero compte",
+        "banque": "Banque",
+        "banquePlaceHolder": "Select a Banque",
+        "banquePlaceHolderFilter": "Search by Banque",
+        "proprietaire": "Proprietaire",
+        "proprietairePlaceHolder": "Select a Proprietaire",
+        "proprietairePlaceHolderFilter": "Search by Proprietaire",
+        "solde": "Solde",
+        "soldeMin": "Solde Min",
+        "soldeMax": "Solde Max",
+        "compte": "Compte",
+        "tabPan": "Compte",
+        "header": "Liste des comptes",
+        "deleteCompteConfirmationMessage": "Voulez vous vraiment supprimer compte",
+        "deleteComptesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatCommande":{
+        "libelle": "Libelle",
+        "etatCommande": "Etat commande",
+        "tabPan": "Etat commande",
+        "header": "Liste des etat commandes",
+        "deleteEtatCommandeConfirmationMessage": "Voulez vous vraiment supprimer etat commande",
+        "deleteEtatCommandesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "chequeEffet":{
+        "numero": "Numero",
+        "dateEmission": "Date emission",
+        "dateEmissionMin": "Date emission Min",
+        "dateEmissionMax": "Date emission Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "fournisseur": "Fournisseur",
+        "fournisseurPlaceHolder": "Select a Fournisseur",
+        "fournisseurPlaceHolderFilter": "Search by Fournisseur",
+        "chequeEffet": "Cheque effet",
+        "tabPan": "Cheque effet",
+        "header": "Liste des cheque effets",
+        "deleteChequeEffetConfirmationMessage": "Voulez vous vraiment supprimer cheque effet",
+        "deleteChequeEffetsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "transactionFournisseur":{
+        "typeInstrument": "Type instrument",
+        "typeInstrumentPlaceHolder": "Select a Type instrument",
+        "typeInstrumentPlaceHolderFilter": "Search by Type instrument",
+        "dateEmission": "Date emission",
+        "dateEmissionMin": "Date emission Min",
+        "dateEmissionMax": "Date emission Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "dateTransaction": "Date transaction",
+        "dateTransactionMin": "Date transaction Min",
+        "dateTransactionMax": "Date transaction Max",
+        "typeTransaction": "Type transaction",
+        "typeTransactionPlaceHolder": "Select a Type transaction",
+        "typeTransactionPlaceHolderFilter": "Search by Type transaction",
+        "compte": "Compte",
+        "comptePlaceHolder": "Select a Compte",
+        "comptePlaceHolderFilter": "Search by Compte",
+        "dateEncaissement": "Date encaissement",
+        "dateEncaissementMin": "Date encaissement Min",
+        "dateEncaissementMax": "Date encaissement Max",
+        "pathPhoto": "Path photo",
+        "description": "Description",
+        "etatTransaction": "Etat transaction",
+        "etatTransactionPlaceHolder": "Select a Etat transaction",
+        "etatTransactionPlaceHolderFilter": "Search by Etat transaction",
+        "transactionFournisseur": "Transaction fournisseur",
+        "tabPan": "Transaction fournisseur",
+        "header": "Liste des transaction fournisseurs",
+        "deleteTransactionFournisseurConfirmationMessage": "Voulez vous vraiment supprimer transaction fournisseur",
+        "deleteTransactionFournisseursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "inventaire":{
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "reference": "Reference",
+        "dateInventaire": "Date inventaire",
+        "dateInventaireMin": "Date inventaire Min",
+        "dateInventaireMax": "Date inventaire Max",
+        "description": "Description",
+        "inventaireItems": "Inventaire items",
+        "inventaire": "Inventaire",
+        "tabPan": "Inventaire",
+        "header": "Liste des inventaires",
+        "deleteInventaireConfirmationMessage": "Voulez vous vraiment supprimer inventaire",
+        "deleteInventairesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "transfert":{
+        "reference": "Reference",
+        "raison": "Raison",
+        "raisonPlaceHolder": "Select a Raison",
+        "raisonPlaceHolderFilter": "Search by Raison",
+        "dateTransfert": "Date transfert",
+        "dateTransfertMin": "Date transfert Min",
+        "dateTransfertMax": "Date transfert Max",
+        "description": "Description",
+        "transfertItems": "Transfert items",
+        "transfert": "Transfert",
+        "tabPan": "Transfert",
+        "header": "Liste des transferts",
+        "deleteTransfertConfirmationMessage": "Voulez vous vraiment supprimer transfert",
+        "deleteTransfertsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "transfertItem":{
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "transfert": "Transfert",
+        "transfertPlaceHolder": "Select a Transfert",
+        "transfertPlaceHolderFilter": "Search by Transfert",
+        "transfertItem": "Transfert item",
+        "tabPan": "Transfert item",
+        "header": "Liste des transfert items",
+        "deleteTransfertItemConfirmationMessage": "Voulez vous vraiment supprimer transfert item",
+        "deleteTransfertItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "vente":{
+        "barCode": "Bar code",
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "codeVente": "Code vente",
+        "dateFacture": "Date facture",
+        "dateFactureMin": "Date facture Min",
+        "dateFactureMax": "Date facture Max",
+        "numeroFacture": "Numero facture",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "etatVente": "Etat vente",
+        "etatVentePlaceHolder": "Select a Etat vente",
+        "etatVentePlaceHolderFilter": "Search by Etat vente",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "venteItems": "Vente items",
+        "avoirVentes": "Avoir ventes",
+        "reglementVentes": "Reglement ventes",
+        "vente": "Vente",
+        "tabPan": "Vente",
+        "header": "Liste des ventes",
+        "deleteVenteConfirmationMessage": "Voulez vous vraiment supprimer vente",
+        "deleteVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "commande":{
+        "barCode": "Bar code",
+        "numeroCommande": "Numero commande",
+        "dateCommande": "Date commande",
+        "dateCommandeMin": "Date commande Min",
+        "dateCommandeMax": "Date commande Max",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "etatCommande": "Etat commande",
+        "etatCommandePlaceHolder": "Select a Etat commande",
+        "etatCommandePlaceHolderFilter": "Search by Etat commande",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "commandeItems": "Commande items",
+        "commande": "Commande",
+        "tabPan": "Commande",
+        "header": "Liste des commandes",
+        "deleteCommandeConfirmationMessage": "Voulez vous vraiment supprimer commande",
+        "deleteCommandesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "avoirAchat":{
+        "barCode": "Bar code",
+        "entrepriseSociete": "Entreprise societe",
+        "entrepriseSocietePlaceHolder": "Select a Entreprise societe",
+        "entrepriseSocietePlaceHolderFilter": "Search by Entreprise societe",
+        "codeAvoirAchat": "Code avoir achat",
+        "numeroFactureAvoirFournisseur": "Numero facture avoir fournisseur",
+        "dateFactureAvoirFournisseur": "Date facture avoir fournisseur",
+        "dateFactureAvoirFournisseurMin": "Date facture avoir fournisseur Min",
+        "dateFactureAvoirFournisseurMax": "Date facture avoir fournisseur Max",
+        "fournisseur": "Fournisseur",
+        "fournisseurPlaceHolder": "Select a Fournisseur",
+        "fournisseurPlaceHolderFilter": "Search by Fournisseur",
+        "etatAvoirAchat": "Etat avoir achat",
+        "etatAvoirAchatPlaceHolder": "Select a Etat avoir achat",
+        "etatAvoirAchatPlaceHolderFilter": "Search by Etat avoir achat",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "avoirAchatItems": "Avoir achat items",
+        "avoirAchat": "Avoir achat",
+        "tabPan": "Avoir achat",
+        "header": "Liste des avoir achats",
+        "deleteAvoirAchatConfirmationMessage": "Voulez vous vraiment supprimer avoir achat",
+        "deleteAvoirAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "sortieProduit":{
+        "reference": "Reference",
+        "dateSortieProduit": "Date sortie produit",
+        "dateSortieProduitMin": "Date sortie produit Min",
+        "dateSortieProduitMax": "Date sortie produit Max",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "description": "Description",
+        "sortieProduitItems": "Sortie produit items",
+        "sortieProduit": "Sortie produit",
+        "tabPan": "Sortie produit",
+        "header": "Liste des sortie produits",
+        "deleteSortieProduitConfirmationMessage": "Voulez vous vraiment supprimer sortie produit",
+        "deleteSortieProduitsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "client":{
+        "cin": "Cin",
+        "nom": "Nom",
+        "telephone": "Telephone",
+        "adresse": "Adresse",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "client": "Client",
+        "tabPan": "Client",
+        "header": "Liste des clients",
+        "deleteClientConfirmationMessage": "Voulez vous vraiment supprimer client",
+        "deleteClientsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatAchat":{
+        "libelle": "Libelle",
+        "etatAchat": "Etat achat",
+        "tabPan": "Etat achat",
+        "header": "Liste des etat achats",
+        "deleteEtatAchatConfirmationMessage": "Voulez vous vraiment supprimer etat achat",
+        "deleteEtatAchatsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "raison":{
+        "libelle": "Libelle",
+        "raison": "Raison",
+        "tabPan": "Raison",
+        "header": "Liste des raisons",
+        "deleteRaisonConfirmationMessage": "Voulez vous vraiment supprimer raison",
+        "deleteRaisonsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "entreeProduitItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "description": "Description",
+        "entreeProduit": "Entree produit",
+        "entreeProduitPlaceHolder": "Select a Entree produit",
+        "entreeProduitPlaceHolderFilter": "Search by Entree produit",
+        "entreeProduitItem": "Entree produit item",
+        "tabPan": "Entree produit item",
+        "header": "Liste des entree produit items",
+        "deleteEntreeProduitItemConfirmationMessage": "Voulez vous vraiment supprimer entree produit item",
+        "deleteEntreeProduitItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "marque":{
+        "libelle": "Libelle",
+        "marque": "Marque",
+        "tabPan": "Marque",
+        "header": "Liste des marques",
+        "deleteMarqueConfirmationMessage": "Voulez vous vraiment supprimer marque",
+        "deleteMarquesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "entrepriseSociete":{
+        "nom": "Nom",
+        "ice": "Ice",
+        "capital": "Capital",
+        "capitalMin": "Capital Min",
+        "capitalMax": "Capital Max",
+        "entrepriseSociete": "Entreprise societe",
+        "tabPan": "Entreprise societe",
+        "header": "Liste des entreprise societes",
+        "deleteEntrepriseSocieteConfirmationMessage": "Voulez vous vraiment supprimer entreprise societe",
+        "deleteEntrepriseSocietesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "reglementAvoirVente":{
+        "reference": "Reference",
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "description": "Description",
+        "avoirVente": "Avoir vente",
+        "avoirVentePlaceHolder": "Select a Avoir vente",
+        "avoirVentePlaceHolderFilter": "Search by Avoir vente",
+        "reglementAvoirVente": "Reglement avoir vente",
+        "tabPan": "Reglement avoir vente",
+        "header": "Liste des reglement avoir ventes",
+        "deleteReglementAvoirVenteConfirmationMessage": "Voulez vous vraiment supprimer reglement avoir vente",
+        "deleteReglementAvoirVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "bonPour":{
+        "numero": "Numero",
+        "dateBonPour": "Date bon pour",
+        "dateBonPourMin": "Date bon pour Min",
+        "dateBonPourMax": "Date bon pour Max",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "description": "Description",
+        "bonPourItems": "Bon pour items",
+        "bonPour": "Bon pour",
+        "tabPan": "Bon pour",
+        "header": "Liste des bon pours",
+        "deleteBonPourConfirmationMessage": "Voulez vous vraiment supprimer bon pour",
+        "deleteBonPoursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "tache":{
+        "dateDebut": "Date debut",
+        "dateDebutMin": "Date debut Min",
+        "dateDebutMax": "Date debut Max",
+        "dateFin": "Date fin",
+        "dateFinMin": "Date fin Min",
+        "dateFinMax": "Date fin Max",
+        "collaborateur": "Collaborateur",
+        "collaborateurPlaceHolder": "Select a Collaborateur",
+        "collaborateurPlaceHolderFilter": "Search by Collaborateur",
+        "description": "Description",
+        "tache": "Tache",
+        "tabPan": "Tache",
+        "header": "Liste des taches",
+        "deleteTacheConfirmationMessage": "Voulez vous vraiment supprimer tache",
+        "deleteTachesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "typeInstrument":{
+        "libelle": "Libelle",
+        "typeInstrument": "Type instrument",
+        "tabPan": "Type instrument",
+        "header": "Liste des type instruments",
+        "deleteTypeInstrumentConfirmationMessage": "Voulez vous vraiment supprimer type instrument",
+        "deleteTypeInstrumentsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "collaborateur":{
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "telephone": "Telephone",
+        "adresse": "Adresse",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "description": "Description",
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "passwordChanged": "Password changed",
+        "username": "Username",
+        "password": "Password",
+        "collaborateur": "Collaborateur",
+        "tabPan": "Collaborateur",
+        "header": "Liste des collaborateurs",
+        "deleteCollaborateurConfirmationMessage": "Voulez vous vraiment supprimer collaborateur",
+        "deleteCollaborateursConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "etatVente":{
+        "libelle": "Libelle",
+        "etatVente": "Etat vente",
+        "tabPan": "Etat vente",
+        "header": "Liste des etat ventes",
+        "deleteEtatVenteConfirmationMessage": "Voulez vous vraiment supprimer etat vente",
+        "deleteEtatVentesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "devisItem":{
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "devis": "Devis",
+        "devisPlaceHolder": "Select a Devis",
+        "devisPlaceHolderFilter": "Search by Devis",
+        "devisItem": "Devis item",
+        "tabPan": "Devis item",
+        "header": "Liste des devis items",
+        "deleteDevisItemConfirmationMessage": "Voulez vous vraiment supprimer devis item",
+        "deleteDevisItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "avoirVenteItem":{
+        "barCode": "Bar code",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "produit": "Produit",
+        "produitPlaceHolder": "Select a Produit",
+        "produitPlaceHolderFilter": "Search by Produit",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "quantiteAvoir": "Quantite avoir",
+        "quantiteAvoirMin": "Quantite avoir Min",
+        "quantiteAvoirMax": "Quantite avoir Max",
+        "quantiteVendue": "Quantite vendue",
+        "quantiteVendueMin": "Quantite vendue Min",
+        "quantiteVendueMax": "Quantite vendue Max",
+        "prixUnitaireHt": "Prix unitaire ht",
+        "prixUnitaireHtMin": "Prix unitaire ht Min",
+        "prixUnitaireHtMax": "Prix unitaire ht Max",
+        "taxe": "Taxe",
+        "taxePlaceHolder": "Select a Taxe",
+        "taxePlaceHolderFilter": "Search by Taxe",
+        "prixUnitaireTtc": "Prix unitaire ttc",
+        "prixUnitaireTtcMin": "Prix unitaire ttc Min",
+        "prixUnitaireTtcMax": "Prix unitaire ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "avoirVente": "Avoir vente",
+        "avoirVentePlaceHolder": "Select a Avoir vente",
+        "avoirVentePlaceHolderFilter": "Search by Avoir vente",
+        "avoirVenteItem": "Avoir vente item",
+        "tabPan": "Avoir vente item",
+        "header": "Liste des avoir vente items",
+        "deleteAvoirVenteItemConfirmationMessage": "Voulez vous vraiment supprimer avoir vente item",
+        "deleteAvoirVenteItemsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+
+    "banque":{
+        "libelle": "Libelle",
+        "banque": "Banque",
+        "tabPan": "Banque",
+        "header": "Liste des banques",
+        "deleteBanqueConfirmationMessage": "Voulez vous vraiment supprimer banque",
+        "deleteBanquesConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+"appName": "GED"
+}
+
+

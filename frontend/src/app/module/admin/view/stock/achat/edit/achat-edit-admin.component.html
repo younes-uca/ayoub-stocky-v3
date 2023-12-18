@@ -1,0 +1,360 @@
+        <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'achat.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'achat.tabPan' | translate}}">
+                        <div class="grid">
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="1">{{'achat.entrepriseSociete' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="entrepriseSocietes" [(ngModel)]="item.entrepriseSociete" id="1" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="nom" placeholder="{{'achat.entrepriseSociete' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'achat.dateFacture' | translate}}<span style="color: red;">*</span></label>
+                                            <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'achat.dateFacture' | translate}}"  [(ngModel)]="item.dateFacture"
+                                                    dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validAchatDateFacture}"  >
+                                            </p-calendar>
+                                            <small class='p-error' *ngIf='!validAchatDateFacture'>DateFacture est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'achat.referenceFacture' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'achat.referenceFacture' | translate}}" id="3" [(ngModel)]="item.referenceFacture"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="4">{{'achat.fournisseur' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="fournisseurs" [(ngModel)]="item.fournisseur" id="4" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="telephone" placeholder="{{'achat.fournisseur' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validAchatFournisseur}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validAchatFournisseur'>Fournisseur est obligatoire.</small>
+                                    </div>
+                                    <div class="field col-11 md:col-6">
+                                        <label for="5">{{'achat.etatAchat' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="etatAchats" [(ngModel)]="item.etatAchat" id="5" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'achat.etatAchat' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'achat.montantHt' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'achat.montantHt' | translate}}" [(ngModel)]="item.montantHt" [ngClass]="{'ng-invalid ng-dirty' : !validAchatMontantHt}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAchatMontantHt'>MontantHt est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'achat.montantTva' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'achat.montantTva' | translate}}" [(ngModel)]="item.montantTva" [ngClass]="{'ng-invalid ng-dirty' : !validAchatMontantTva}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAchatMontantTva'>MontantTva est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'achat.montantTtc' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="8" placeholder="{{'achat.montantTtc' | translate}}" [(ngModel)]="item.montantTtc" [ngClass]="{'ng-invalid ng-dirty' : !validAchatMontantTtc}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validAchatMontantTtc'>MontantTtc est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="9">{{'achat.description' | translate}}</label>
+                                            <textarea id="9" pInputTextarea rows="5" cols="30" placeholder="{{'achat.description' | translate}}"  [(ngModel)]="item.description"
+                                                     ></textarea>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                            <p-tabPanel header="{{'achat.achatItems' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="1">Bar code<span style="color: red;">*</span></label>
+                                                                <input appendTo="body" class="mb-2 mr-2" type="text" pInputText placeholder="Bar code"
+                                                                       id="1" [(ngModel)]="achatItemsElement.barCode"
+                                                                       autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsBarCode}"  >
+                                                                <small class='p-error' *ngIf='!validAchatItemsBarCode'>BarCode est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Footer bar code<span style="color: red;">*</span></label>
+                                                                <input appendTo="body" class="mb-2 mr-2" type="text" pInputText placeholder="Footer bar code"
+                                                                       id="2" [(ngModel)]="achatItemsElement.footerBarCode"
+                                                                       autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsFooterBarCode}"  >
+                                                                <small class='p-error' *ngIf='!validAchatItemsFooterBarCode'>FooterBarCode est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-5">
+                                                                <label>Produit</label>
+                                                                <p-dropdown appendTo="body" [options]="produits" [(ngModel)]="achatItemsElement.produit"
+                                                                        id="3"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="designation" placeholder="Produit"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <label></label>
+                                                                <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateProduit('Produit')"  class="p-button-success one-colonne-btn-success-align"></button>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">Quantite<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="quantite" [(ngModel)]="achatItemsElement.quantite" placeholder="Quantite"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsQuantite}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsQuantite'>Quantite est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="5">Quantite avoir</label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="quantiteAvoir" [(ngModel)]="achatItemsElement.quantiteAvoir" placeholder="Quantite avoir"  ></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="6">Quantite disponible</label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="quantiteDisponible" [(ngModel)]="achatItemsElement.quantiteDisponible" placeholder="Quantite disponible"  ></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="7">Prix unitaire ht<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="prixUnitaireHt" [(ngModel)]="achatItemsElement.prixUnitaireHt" placeholder="Prix unitaire ht"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsPrixUnitaireHt}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsPrixUnitaireHt'>PrixUnitaireHt est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-5">
+                                                                <label>Taxe</label>
+                                                                <p-dropdown appendTo="body" [options]="taxes" [(ngModel)]="achatItemsElement.taxe"
+                                                                        id="8"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Taxe"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <label></label>
+                                                                <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTaxe('Taxe')"  class="p-button-success one-colonne-btn-success-align"></button>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="9">Prix unitaire ttc<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="prixUnitaireTtc" [(ngModel)]="achatItemsElement.prixUnitaireTtc" placeholder="Prix unitaire ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsPrixUnitaireTtc}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsPrixUnitaireTtc'>PrixUnitaireTtc est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="10">Remise<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="remise" [(ngModel)]="achatItemsElement.remise" placeholder="Remise"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsRemise}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsRemise'>Remise est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="11">Montant ht<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantHt" [(ngModel)]="achatItemsElement.montantHt" placeholder="Montant ht"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsMontantHt}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsMontantHt'>MontantHt est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="12">Montant ttc<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantTtc" [(ngModel)]="achatItemsElement.montantTtc" placeholder="Montant ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validAchatItemsMontantTtc}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAchatItemsMontantTtc'>MontantTtc est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Depot</label>
+                                                                <p-dropdown appendTo="body" [options]="depots" [(ngModel)]="achatItemsElement.depot"
+                                                                        id="14"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Depot"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addAchatItems()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.achatItems?.length > 0 ? '(' + item.achatItems?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.achatItems" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Bar code</th>
+                                                                        <th>Footer bar code</th>
+                                                                        <th>Produit</th>
+                                                                        <th>Quantite</th>
+                                                                        <th>Quantite avoir</th>
+                                                                        <th>Quantite disponible</th>
+                                                                        <th>Prix unitaire ht</th>
+                                                                        <th>Taxe</th>
+                                                                        <th>Prix unitaire ttc</th>
+                                                                        <th>Remise</th>
+                                                                        <th>Montant ht</th>
+                                                                        <th>Montant ttc</th>
+                                                                        <th>Depot</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                        <td>{{p.barCode}}</td>
+                                                                        <td>{{p.footerBarCode}}</td>
+                                                                    <td>{{p.produit?.designation}}</td>
+                                                                        <td>{{p.quantite}}</td>
+                                                                        <td>{{p.quantiteAvoir}}</td>
+                                                                        <td>{{p.quantiteDisponible}}</td>
+                                                                        <td>{{p.prixUnitaireHt}}</td>
+                                                                    <td>{{p.taxe?.libelle}}</td>
+                                                                        <td>{{p.prixUnitaireTtc}}</td>
+                                                                        <td>{{p.remise}}</td>
+                                                                        <td>{{p.montantHt}}</td>
+                                                                        <td>{{p.montantTtc}}</td>
+                                                                    <td>{{p.depot?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteAchatItems(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editAchatItems(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                            <p-tabPanel header="{{'achat.avoirAchats' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="1">Bar code<span style="color: red;">*</span></label>
+                                                                <input appendTo="body" class="mb-2 mr-2" type="text" pInputText placeholder="Bar code"
+                                                                       id="1" [(ngModel)]="avoirAchatsElement.barCode"
+                                                                       autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsBarCode}"  >
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsBarCode'>BarCode est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Entreprise societe<span style="color: red;">*</span></label>
+                                                                <p-dropdown appendTo="body" [options]="entrepriseSocietes" [(ngModel)]="avoirAchatsElement.entrepriseSociete"
+                                                                        id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="nom" placeholder="Entreprise societe"  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsEntrepriseSociete}" >
+                                                                </p-dropdown>
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsEntrepriseSociete'>EntrepriseSociete est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Code avoir achat<span style="color: red;">*</span></label>
+                                                                <input appendTo="body" class="mb-2 mr-2" type="text" pInputText placeholder="Code avoir achat"
+                                                                       id="3" [(ngModel)]="avoirAchatsElement.codeAvoirAchat"
+                                                                       autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsCodeAvoirAchat}"  >
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsCodeAvoirAchat'>CodeAvoirAchat est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">Numero facture avoir fournisseur<span style="color: red;">*</span></label>
+                                                                <input appendTo="body" class="mb-2 mr-2" type="text" pInputText placeholder="Numero facture avoir fournisseur"
+                                                                       id="4" [(ngModel)]="avoirAchatsElement.numeroFactureAvoirFournisseur"
+                                                                       autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsNumeroFactureAvoirFournisseur}"  >
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsNumeroFactureAvoirFournisseur'>NumeroFactureAvoirFournisseur est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="5">Date facture avoir fournisseur<span style="color: red;">*</span></label>
+                                                                <p-calendar  appendTo="body" id="5" placeholder="Date facture avoir fournisseur"  [showTime]="true" [showSeconds]="false"
+                                                                        [(ngModel)]="avoirAchatsElement.dateFactureAvoirFournisseur"  [showIcon]="true"  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsDateFactureAvoirFournisseur}" ></p-calendar>
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsDateFactureAvoirFournisseur'>DateFactureAvoirFournisseur est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Fournisseur<span style="color: red;">*</span></label>
+                                                                <p-dropdown appendTo="body" [options]="fournisseurs" [(ngModel)]="avoirAchatsElement.fournisseur"
+                                                                        id="6"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="telephone" placeholder="Fournisseur"  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsFournisseur}" >
+                                                                </p-dropdown>
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsFournisseur'>Fournisseur est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Etat avoir achat</label>
+                                                                <p-dropdown appendTo="body" [options]="etatAvoirAchats" [(ngModel)]="avoirAchatsElement.etatAvoirAchat"
+                                                                        id="7"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Etat avoir achat"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="8">Montant ht</label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantHt" [(ngModel)]="avoirAchatsElement.montantHt" placeholder="Montant ht"  ></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="9">Montant tva</label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantTva" [(ngModel)]="avoirAchatsElement.montantTva" placeholder="Montant tva"  ></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="10">Montant ttc<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantTtc" [(ngModel)]="avoirAchatsElement.montantTtc" placeholder="Montant ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validAvoirAchatsMontantTtc}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validAvoirAchatsMontantTtc'>MontantTtc est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="11">{{'avoirAchat.description' | translate}}</label>
+                                                                <textarea id="11" pInputTextarea rows="5" cols="30" placeholder="{{'avoirAchat.description' | translate}}"  [(ngModel)]="item.description"
+                                                                         ></textarea>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addAvoirAchats()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.avoirAchats?.length > 0 ? '(' + item.avoirAchats?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.avoirAchats" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Bar code</th>
+                                                                        <th>Entreprise societe</th>
+                                                                        <th>Code avoir achat</th>
+                                                                        <th>Numero facture avoir fournisseur</th>
+                                                                        <th>Date facture avoir fournisseur</th>
+                                                                        <th>Fournisseur</th>
+                                                                        <th>Etat avoir achat</th>
+                                                                        <th>Montant ht</th>
+                                                                        <th>Montant tva</th>
+                                                                        <th>Montant ttc</th>
+                                                                        <th>Description</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                        <td>{{p.barCode}}</td>
+                                                                    <td>{{p.entrepriseSociete?.nom}}</td>
+                                                                        <td>{{p.codeAvoirAchat}}</td>
+                                                                        <td>{{p.numeroFactureAvoirFournisseur}}</td>
+                                                                        <td>{{p.dateFactureAvoirFournisseur | date: dateFormatColumn}}</td>
+                                                                    <td>{{p.fournisseur?.telephone}}</td>
+                                                                    <td>{{p.etatAvoirAchat?.libelle}}</td>
+                                                                        <td>{{p.montantHt}}</td>
+                                                                        <td>{{p.montantTva}}</td>
+                                                                        <td>{{p.montantTtc}}</td>
+                                                                        <td>{{p.description}}</td>
+                                                            <td>
+                                                                <button (click)="deleteAvoirAchats(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editAvoirAchats(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                </p-tabView>
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-footer">
+                        <div>
+                            <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="Valider" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+
+                            <app-produit-create-admin></app-produit-create-admin>
+                            <app-taxe-create-admin></app-taxe-create-admin>
+
+    </p-dialog>

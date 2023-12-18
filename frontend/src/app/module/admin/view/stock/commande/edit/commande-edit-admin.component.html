@@ -1,0 +1,196 @@
+        <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'commande.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'commande.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'commande.barCode' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'commande.barCode' | translate}}" id="1" [(ngModel)]="item.barCode"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validCommandeBarCode}"  />
+                                            <small class='p-error' *ngIf='!validCommandeBarCode'>BarCode est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'commande.numeroCommande' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'commande.numeroCommande' | translate}}" id="2" [(ngModel)]="item.numeroCommande"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validCommandeNumeroCommande}"  />
+                                            <small class='p-error' *ngIf='!validCommandeNumeroCommande'>NumeroCommande est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'commande.dateCommande' | translate}}<span style="color: red;">*</span></label>
+                                            <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'commande.dateCommande' | translate}}"  [(ngModel)]="item.dateCommande"
+                                                    dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validCommandeDateCommande}"  >
+                                            </p-calendar>
+                                            <small class='p-error' *ngIf='!validCommandeDateCommande'>DateCommande est obligatoire.</small>
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="4">{{'commande.client' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="clients" [(ngModel)]="item.client" id="4" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="telephone" placeholder="{{'commande.client' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validCommandeClient}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validCommandeClient'>Client est obligatoire.</small>
+                                    </div>
+                                    <div class="field col-11 md:col-6">
+                                        <label for="5">{{'commande.etatCommande' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="etatCommandes" [(ngModel)]="item.etatCommande" id="5" [filter]="true" filterMatchMode="contains"
+                                                [showClear]="true" optionLabel="libelle" placeholder="{{'commande.etatCommande' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'commande.montantHt' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'commande.montantHt' | translate}}" [(ngModel)]="item.montantHt" [ngClass]="{'ng-invalid ng-dirty' : !validCommandeMontantHt}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validCommandeMontantHt'>MontantHt est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'commande.montantTva' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'commande.montantTva' | translate}}" [(ngModel)]="item.montantTva" [ngClass]="{'ng-invalid ng-dirty' : !validCommandeMontantTva}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validCommandeMontantTva'>MontantTva est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'commande.montantTtc' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="8" placeholder="{{'commande.montantTtc' | translate}}" [(ngModel)]="item.montantTtc" [ngClass]="{'ng-invalid ng-dirty' : !validCommandeMontantTtc}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validCommandeMontantTtc'>MontantTtc est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="9">{{'commande.description' | translate}}</label>
+                                            <textarea id="9" pInputTextarea rows="5" cols="30" placeholder="{{'commande.description' | translate}}"  [(ngModel)]="item.description"
+                                                     ></textarea>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                            <p-tabPanel header="{{'commande.commandeItems' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                        <div class="grid">
+                                                            <div class="field col-11 md:col-5">
+                                                                <label>Produit<span style="color: red;">*</span></label>
+                                                                <p-dropdown appendTo="body" [options]="produits" [(ngModel)]="commandeItemsElement.produit"
+                                                                        id="1"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="designation" placeholder="Produit"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsProduit}" >
+                                                                </p-dropdown>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsProduit'>Produit est obligatoire.</small>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <label></label>
+                                                                <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateProduit('Produit')"  class="p-button-success one-colonne-btn-success-align"></button>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Quantite<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="quantite" [(ngModel)]="commandeItemsElement.quantite" placeholder="Quantite"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsQuantite}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsQuantite'>Quantite est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Prix unitaire ht<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="prixUnitaireHt" [(ngModel)]="commandeItemsElement.prixUnitaireHt" placeholder="Prix unitaire ht"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsPrixUnitaireHt}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsPrixUnitaireHt'>PrixUnitaireHt est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-11 md:col-5">
+                                                                <label>Taxe</label>
+                                                                <p-dropdown appendTo="body" [options]="taxes" [(ngModel)]="commandeItemsElement.taxe"
+                                                                        id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true"
+                                                                        optionLabel="libelle" placeholder="Taxe"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <label></label>
+                                                                <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTaxe('Taxe')"  class="p-button-success one-colonne-btn-success-align"></button>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="5">Prix unitaire ttc<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="prixUnitaireTtc" [(ngModel)]="commandeItemsElement.prixUnitaireTtc" placeholder="Prix unitaire ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsPrixUnitaireTtc}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsPrixUnitaireTtc'>PrixUnitaireTtc est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="6">Remise<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="remise" [(ngModel)]="commandeItemsElement.remise" placeholder="Remise"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsRemise}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsRemise'>Remise est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="7">Montant ht<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantHt" [(ngModel)]="commandeItemsElement.montantHt" placeholder="Montant ht"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsMontantHt}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsMontantHt'>MontantHt est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="8">Montant ttc<span style="color: red;">*</span></label>
+                                                                <p-inputNumber  appendTo="body" class="mb-2 mr-2" id="montantTtc" [(ngModel)]="commandeItemsElement.montantTtc" placeholder="Montant ttc"  [ngClass]="{'ng-invalid ng-dirty' : !validCommandeItemsMontantTtc}" ></p-inputNumber>
+                                                                <small class='p-error' *ngIf='!validCommandeItemsMontantTtc'>MontantTtc est obligatoire.</small>
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addCommandeItems()"></button>
+                                                </div>
+                                        </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.commandeItems?.length > 0 ? '(' + item.commandeItems?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.commandeItems" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Produit</th>
+                                                                        <th>Quantite</th>
+                                                                        <th>Prix unitaire ht</th>
+                                                                        <th>Taxe</th>
+                                                                        <th>Prix unitaire ttc</th>
+                                                                        <th>Remise</th>
+                                                                        <th>Montant ht</th>
+                                                                        <th>Montant ttc</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.produit?.designation}}</td>
+                                                                        <td>{{p.quantite}}</td>
+                                                                        <td>{{p.prixUnitaireHt}}</td>
+                                                                    <td>{{p.taxe?.libelle}}</td>
+                                                                        <td>{{p.prixUnitaireTtc}}</td>
+                                                                        <td>{{p.remise}}</td>
+                                                                        <td>{{p.montantHt}}</td>
+                                                                        <td>{{p.montantTtc}}</td>
+                                                            <td>
+                                                                <button (click)="deleteCommandeItems(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editCommandeItems(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+                </p-tabView>
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-footer">
+                        <div>
+                            <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="Valider" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+
+                            <app-produit-create-admin></app-produit-create-admin>
+                            <app-taxe-create-admin></app-taxe-create-admin>
+
+    </p-dialog>

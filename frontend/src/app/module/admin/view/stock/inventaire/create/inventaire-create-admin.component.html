@@ -1,0 +1,126 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'inventaire.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'inventaire.tabPan' | translate}}">
+                                <div class="grid">
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="1">{{'inventaire.entrepriseSociete' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="entrepriseSocietes" [(ngModel)]="item.entrepriseSociete" id="1" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="nom" placeholder="{{'inventaire.entrepriseSociete' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                            <div class="field col-11 md:col-6">
+                                                <label for="2">{{'inventaire.depot' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="depots" [(ngModel)]="item.depot" id="2" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'inventaire.depot' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'inventaire.reference' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'inventaire.reference' | translate}}" id="3" [(ngModel)]="item.reference"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validInventaireReference}"  />
+                                                    <small class='p-error' *ngIf='!validInventaireReference'>Reference est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'inventaire.dateInventaire' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'inventaire.dateInventaire' | translate}}"  [(ngModel)]="item.dateInventaire"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validInventaireDateInventaire}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validInventaireDateInventaire'>DateInventaire est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="5">{{'inventaire.description' | translate}}</label>
+                                                    <textarea id="5" pInputTextarea rows="5" cols="30" placeholder="{{'inventaire.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                </div>
+                            </p-tabPanel>
+                                    <p-tabPanel header="{{'inventaire.inventaireItems' | translate}}">
+                                                <div class="p-col">
+                                                    <div class="grid">
+                                                                    <div class="field col-11 md:col-5">
+                                                                        <label>Produit</label>
+                                                                        <p-dropdown  appendTo="body"  [options]="produits" [(ngModel)]="inventaireItemsElement.produit"
+                                                                                     id="1"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="designation"
+                                                                                     placeholder="Produit"  >
+                                                                        </p-dropdown>
+                                                                        
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <label></label>
+                                                                        <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateProduit('produit')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="2">Quantite estime<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="quantiteEstime" placeholder="Quantite estime"  [ngClass]="{'ng-invalid ng-dirty' : !validInventaireItemsQuantiteEstime}" [(ngModel)]="inventaireItemsElement.quantiteEstime"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validInventaireItemsQuantiteEstime'>QuantiteEstime est obligatoire.</small>
+                                                                    </div>
+                                                                    <div class="field col-12 md:col-6">
+                                                                        <label for="3">Quantite reelle<span style="color: red;">*</span></label>
+                                                                        <p-inputNumber class="mb-2 mr-2" id="quantiteReelle" placeholder="Quantite reelle"  [ngClass]="{'ng-invalid ng-dirty' : !validInventaireItemsQuantiteReelle}" [(ngModel)]="inventaireItemsElement.quantiteReelle"></p-inputNumber>
+                                                                        <small class='p-error' *ngIf='!validInventaireItemsQuantiteReelle'>QuantiteReelle est obligatoire.</small>
+                                                                    </div>
+                                                        <div class="field col-12 md:col-1">
+                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addInventaireItems()"></button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="p-col">
+                                                    <div class="card">
+                                                        <p-table [value]="item.inventaireItems" [scrollable]="true" scrollHeight="200px">
+                                                            <ng-template pTemplate="header">
+                                                                <tr>
+                                                                                <th>Produit</th>
+                                                                                <th>Quantite estime</th>
+                                                                                <th>Quantite reelle</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </ng-template>
+                                                            <ng-template pTemplate="body" let-p>
+                                                                <tr>
+                                                                            <td>{{p.produit?.designation}}</td>
+                                                                                <td>{{p.quantiteEstime}}</td>
+                                                                                <td>{{p.quantiteReelle}}</td>
+                                                                    <td>
+                                                                        <button (click)="deleteInventaireItems(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                        <button (click)="editInventaireItems(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                                    </td>
+                                                                </tr>
+                                                            </ng-template>
+                                                        </p-table>
+                                                    </div>
+
+                                                </div>
+                                    </p-tabPanel>
+
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+
+            <app-produit-create-admin></app-produit-create-admin>
+
+    </p-dialog>

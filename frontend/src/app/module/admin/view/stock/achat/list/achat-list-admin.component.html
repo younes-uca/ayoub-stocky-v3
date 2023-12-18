@@ -1,0 +1,234 @@
+<div class="grid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-success mr-2 mb-2" (click)="openCreate('Achat')"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-warning mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1-2">{{'achat.entrepriseSociete' | translate}} Max</label>
+                            <p-dropdown [options]="entrepriseSocietes" [(ngModel)]="criteria.entrepriseSociete" id="1" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'achat.entrepriseSociete' | translate}}" optionLabel="nom">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="2-1">{{'achat.dateFactureMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateFactureFrom"
+                                    id="2-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-2">{{'achat.dateFactureMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateFactureTo"
+                                    id="2-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3">{{'achat.referenceFacture' | translate}}</label>
+                            <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.referenceFactureLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-2">{{'achat.fournisseur' | translate}} Max</label>
+                            <p-dropdown [options]="fournisseurs" [(ngModel)]="criteria.fournisseur" id="4" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'achat.fournisseur' | translate}}" optionLabel="telephone">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-2">{{'achat.etatAchat' | translate}} Max</label>
+                            <p-dropdown [options]="etatAchats" [(ngModel)]="criteria.etatAchat" id="5" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'achat.etatAchat' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-1">{{'achat.montantHtMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantHtMin" id="6-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-2">{{'achat.montantHtMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantHtMax" id="6-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-1">{{'achat.montantTvaMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantTvaMin" id="7-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-2">{{'achat.montantTvaMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantTvaMax" id="7-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="8-1">{{'achat.montantTtcMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantTtcMin" id="8-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="8-2">{{'achat.montantTtcMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.montantTtcMax" id="8-2"></p-inputNumber>
+                       </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="9">{{'achat.description' | translate}}</label>
+                            <input  class="w-full"  pInputText id="9" type="text"  [(ngModel)]="criteria.descriptionLike">
+                        </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['entrepriseSocietenom', 'dateFacture', 'referenceFacture', 'fournisseurtelephone', 'etatAchatlibelle', 'montantHt', 'montantTva', 'montantTtc']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'achat.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="entrepriseSociete">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.entrepriseSociete' | translate}}</span>
+                                <p-sortIcon field="entrepriseSociete"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="dateFacture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.dateFacture' | translate}}</span>
+                                <p-sortIcon field="dateFacture"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="referenceFacture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.referenceFacture' | translate}}</span>
+                                <p-sortIcon field="referenceFacture"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.referenceFacture" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="fournisseur">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.fournisseur' | translate}}</span>
+                                <p-sortIcon field="fournisseur"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="etatAchat">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.etatAchat' | translate}}</span>
+                                <p-sortIcon field="etatAchat"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="montantHt">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantHt' | translate}}</span>
+                                <p-sortIcon field="montantHt"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="montantTva">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantTva' | translate}}</span>
+                                <p-sortIcon field="montantTva"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="montantTtc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantTtc' | translate}}</span>
+                                <p-sortIcon field="montantTtc"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.entrepriseSociete?.nom}}</td>
+                            
+                            
+                        <td>{{element.dateFacture | date :'dd/MM/yyyy HH:mm' }}</td>
+                            
+                            
+                        <td>{{element.referenceFacture}}</td>
+                            
+                            
+                        <td>{{element.fournisseur?.telephone}}</td>
+                            
+                            
+                        <td>{{element.etatAchat?.libelle}}</td>
+                            
+                            
+                        <td>{{element.montantHt}}</td>
+                            
+                            
+                        <td>{{element.montantTva}}</td>
+                            
+                            
+                        <td>{{element.montantTtc}}</td>
+                            
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-success mr-2" (click)="edit(element)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info mr-2" (click)="view(element)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'achat' : 'achats' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-achat-create-admin  *ngIf="createDialog"></app-achat-create-admin>
+        <app-achat-edit-admin  *ngIf="editDialog"></app-achat-edit-admin>
+        <app-achat-view-admin  *ngIf="viewDialog"></app-achat-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

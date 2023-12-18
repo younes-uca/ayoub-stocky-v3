@@ -1,0 +1,159 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'collaborateur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'collaborateur.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'collaborateur.nom' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.nom' | translate}}" id="1" [(ngModel)]="item.nom"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validCollaborateurNom}"  />
+                                                    <small class='p-error' *ngIf='!validCollaborateurNom'>Nom est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'collaborateur.prenom' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.prenom' | translate}}" id="2" [(ngModel)]="item.prenom"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validCollaborateurPrenom}"  />
+                                                    <small class='p-error' *ngIf='!validCollaborateurPrenom'>Prenom est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'collaborateur.telephone' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.telephone' | translate}}" id="3" [(ngModel)]="item.telephone"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validCollaborateurTelephone}"  />
+                                                    <small class='p-error' *ngIf='!validCollaborateurTelephone'>Telephone est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'collaborateur.adresse' | translate}}</label>
+                                                    <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'collaborateur.adresse' | translate}}"  [(ngModel)]="item.adresse"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="5">{{'collaborateur.creance' | translate}}</label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'collaborateur.creance' | translate}}" [(ngModel)]="item.creance"  >
+                                                    </p-inputNumber>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="6">{{'collaborateur.description' | translate}}</label>
+                                                    <textarea id="6" pInputTextarea rows="5" cols="30" placeholder="{{'collaborateur.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="7">{{'collaborateur.credentialsNonExpired' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="7"  [(ngModel)]="item.credentialsNonExpired"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="8">{{'collaborateur.enabled' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="8"  [(ngModel)]="item.enabled"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="9">{{'collaborateur.accountNonExpired' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="9"  [(ngModel)]="item.accountNonExpired"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="10">{{'collaborateur.accountNonLocked' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="10"  [(ngModel)]="item.accountNonLocked"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field align-inputswitch col-12  md:col-6">
+                                                    <div  class="label-inputswitch">
+                                                        <label for="11">{{'collaborateur.passwordChanged' | translate}}</label>
+                                                    </div>
+                                                    <div class="input-switch">
+                                                        <p-inputSwitch id="11"  [(ngModel)]="item.passwordChanged"
+                                                                 >
+                                                        </p-inputSwitch>
+                                                        
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="12">{{'collaborateur.username' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.username' | translate}}" id="12" [(ngModel)]="item.username"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="13">{{'collaborateur.password' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'collaborateur.password' | translate}}" id="13" [(ngModel)]="item.password"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+
+
+    </p-dialog>

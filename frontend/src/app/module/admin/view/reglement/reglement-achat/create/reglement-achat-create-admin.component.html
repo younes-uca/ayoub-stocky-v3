@@ -1,0 +1,73 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'reglementAchat.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'reglementAchat.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'reglementAchat.reference' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reglementAchat.reference' | translate}}" id="1" [(ngModel)]="item.reference"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReglementAchatReference}"  />
+                                                    <small class='p-error' *ngIf='!validReglementAchatReference'>Reference est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'reglementAchat.dateReglement' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'reglementAchat.dateReglement' | translate}}"  [(ngModel)]="item.dateReglement"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementAchatDateReglement}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validReglementAchatDateReglement'>DateReglement est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'reglementAchat.montant' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'reglementAchat.montant' | translate}}" [(ngModel)]="item.montant" [ngClass]="{'ng-invalid ng-dirty' : !validReglementAchatMontant}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validReglementAchatMontant'>Montant est obligatoire.</small>
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'reglementAchat.achat' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="achats" [(ngModel)]="item.achat" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'reglementAchat.achat' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'reglementAchat.modeReglement' | translate}}<span style="color: red;">*</span></label>
+                                                <p-dropdown  appendTo="body"  [options]="modeReglements" [(ngModel)]="item.modeReglement" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reglementAchat.modeReglement' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementAchatModeReglement}"  >
+                                                </p-dropdown>
+                                                <small class='p-error' *ngIf='!validReglementAchatModeReglement'>ModeReglement est obligatoire.</small>
+                                            </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="6">{{'reglementAchat.description' | translate}}</label>
+                                                    <textarea id="6" pInputTextarea rows="5" cols="30" placeholder="{{'reglementAchat.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+
+
+    </p-dialog>

@@ -1,0 +1,76 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'avoirVenteItem.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'avoirVenteItem.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'avoirVenteItem.barCode' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirVenteItem.barCode' | translate}}" autofocus  id="1" [(ngModel)]="item.barCode">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'avoirVenteItem.depot' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirVenteItem.depot' | translate}}" autofocus  id="2" [(ngModel)]="item.depot?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'avoirVenteItem.produit' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirVenteItem.produit' | translate}}" autofocus  id="3" [(ngModel)]="item.produit?.designation">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'avoirVenteItem.quantite' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'avoirVenteItem.quantite' | translate}}" [(ngModel)]="item.quantite"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'avoirVenteItem.quantiteAvoir' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'avoirVenteItem.quantiteAvoir' | translate}}" [(ngModel)]="item.quantiteAvoir"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'avoirVenteItem.quantiteVendue' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'avoirVenteItem.quantiteVendue' | translate}}" [(ngModel)]="item.quantiteVendue"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'avoirVenteItem.prixUnitaireHt' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{{'avoirVenteItem.prixUnitaireHt' | translate}}" [(ngModel)]="item.prixUnitaireHt"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'avoirVenteItem.taxe' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirVenteItem.taxe' | translate}}" autofocus  id="8" [(ngModel)]="item.taxe?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="9">{{'avoirVenteItem.prixUnitaireTtc' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="9" [disabled]="true" placeholder="{{'avoirVenteItem.prixUnitaireTtc' | translate}}" [(ngModel)]="item.prixUnitaireTtc"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="10">{{'avoirVenteItem.remise' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="10" [disabled]="true" placeholder="{{'avoirVenteItem.remise' | translate}}" [(ngModel)]="item.remise"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'avoirVenteItem.montantHt' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="11" [disabled]="true" placeholder="{{'avoirVenteItem.montantHt' | translate}}" [(ngModel)]="item.montantHt"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="12">{{'avoirVenteItem.montantTtc' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="12" [disabled]="true" placeholder="{{'avoirVenteItem.montantTtc' | translate}}" [(ngModel)]="item.montantTtc"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="13">{{'avoirVenteItem.avoirVente' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirVenteItem.avoirVente' | translate}}" autofocus  id="13" [(ngModel)]="item.avoirVente?.numeroFactureAvoirVente">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="grid-footer">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

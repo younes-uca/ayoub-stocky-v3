@@ -1,0 +1,123 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'transactionFournisseur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'transactionFournisseur.tabPan' | translate}}">
+                                <div class="grid">
+
+                                            <div class="field col-11 md:col-5">
+                                                <label for="1">{{'transactionFournisseur.typeInstrument' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="typeInstruments" [(ngModel)]="item.typeInstrument" id="1" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'transactionFournisseur.typeInstrument' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="col-1">
+                                                    <label></label>
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTypeInstrument('TypeInstrument')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'transactionFournisseur.dateEmission' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'transactionFournisseur.dateEmission' | translate}}"  [(ngModel)]="item.dateEmission"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validTransactionFournisseurDateEmission}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validTransactionFournisseurDateEmission'>DateEmission est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'transactionFournisseur.montant' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'transactionFournisseur.montant' | translate}}" [(ngModel)]="item.montant" [ngClass]="{'ng-invalid ng-dirty' : !validTransactionFournisseurMontant}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validTransactionFournisseurMontant'>Montant est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'transactionFournisseur.dateTransaction' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'transactionFournisseur.dateTransaction' | translate}}"  [(ngModel)]="item.dateTransaction"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validTransactionFournisseurDateTransaction}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validTransactionFournisseurDateTransaction'>DateTransaction est obligatoire.</small>
+                                                </div>
+
+                                            <div class="field col-11 md:col-5">
+                                                <label for="5">{{'transactionFournisseur.typeTransaction' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="typeTransactions" [(ngModel)]="item.typeTransaction" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'transactionFournisseur.typeTransaction' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="col-1">
+                                                    <label></label>
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateTypeTransaction('TypeTransaction')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                </div>
+                                            <div class="field col-11 md:col-5">
+                                                <label for="6">{{'transactionFournisseur.compte' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="comptes" [(ngModel)]="item.compte" id="6" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="numeroCompte" placeholder="{{'transactionFournisseur.compte' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="col-1">
+                                                    <label></label>
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateCompte('Compte')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="7">{{'transactionFournisseur.dateEncaissement' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="7"  [showTime]="true" [showSeconds]="false" placeholder="{{'transactionFournisseur.dateEncaissement' | translate}}"  [(ngModel)]="item.dateEncaissement"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validTransactionFournisseurDateEncaissement}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validTransactionFournisseurDateEncaissement'>DateEncaissement est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="8">{{'transactionFournisseur.pathPhoto' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'transactionFournisseur.pathPhoto' | translate}}" id="8" [(ngModel)]="item.pathPhoto"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="9">{{'transactionFournisseur.description' | translate}}</label>
+                                                    <textarea id="9" pInputTextarea rows="5" cols="30" placeholder="{{'transactionFournisseur.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-5">
+                                                <label for="10">{{'transactionFournisseur.etatTransaction' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="etatTransactions" [(ngModel)]="item.etatTransaction" id="10" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'transactionFournisseur.etatTransaction' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="col-1">
+                                                    <label></label>
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" (click)="openCreateEtatTransaction('EtatTransaction')" class="p-button-success one-colonne-btn-success-align"></button>
+                                                </div>
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+            <app-type-instrument-create-admin></app-type-instrument-create-admin>
+            <app-type-transaction-create-admin></app-type-transaction-create-admin>
+            <app-compte-create-admin></app-compte-create-admin>
+            <app-etat-transaction-create-admin></app-etat-transaction-create-admin>
+
+
+    </p-dialog>

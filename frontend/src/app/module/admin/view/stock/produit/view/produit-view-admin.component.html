@@ -1,0 +1,98 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'produit.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'produit.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'produit.entrepriseSociete' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete?.nom">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'produit.reference' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.reference' | translate}}" autofocus  id="2" [(ngModel)]="item.reference">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'produit.barCode' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.barCode' | translate}}" autofocus  id="3" [(ngModel)]="item.barCode">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'produit.categorie' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.categorie' | translate}}" autofocus  id="4" [(ngModel)]="item.categorie?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'produit.designation' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.designation' | translate}}" autofocus  id="5" [(ngModel)]="item.designation">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'produit.marque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.marque' | translate}}" autofocus  id="6" [(ngModel)]="item.marque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'produit.uniteMesure' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.uniteMesure' | translate}}" autofocus  id="7" [(ngModel)]="item.uniteMesure?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'produit.quantite' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="8" [disabled]="true" placeholder="{{'produit.quantite' | translate}}" [(ngModel)]="item.quantite"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="9">{{'produit.prixAchatMoyen' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="9" [disabled]="true" placeholder="{{'produit.prixAchatMoyen' | translate}}" [(ngModel)]="item.prixAchatMoyen"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="10">{{'produit.prixVente' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="10" [disabled]="true" placeholder="{{'produit.prixVente' | translate}}" [(ngModel)]="item.prixVente"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="12">{{'produit.pathPhoto' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'produit.pathPhoto' | translate}}" autofocus  id="12" [(ngModel)]="item.pathPhoto">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="13">{{'produit.seuilAlerte' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="13" [disabled]="true" placeholder="{{'produit.seuilAlerte' | translate}}" [(ngModel)]="item.seuilAlerte"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="14">{{'produit.description' | translate}}</label>
+                        <textarea id="14" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'produit.description' | translate}}"  [(ngModel)]="item.description"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'produit.stocks' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.stocks" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Depot</th>
+                                        <th>Quantite</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.depot?.libelle}}</td>
+                                        <td>{{p.quantite}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="grid-footer">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

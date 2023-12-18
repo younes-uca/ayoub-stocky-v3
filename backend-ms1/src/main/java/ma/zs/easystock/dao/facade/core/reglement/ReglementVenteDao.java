@@ -1,0 +1,26 @@
+package ma.zs.easystock.dao.facade.core.reglement;
+
+import org.springframework.data.jpa.repository.Query;
+import ma.zs.easystock.zynerator.repository.AbstractRepository;
+import ma.zs.easystock.bean.core.reglement.ReglementVente;
+import org.springframework.stereotype.Repository;
+import ma.zs.easystock.bean.core.reglement.ReglementVente;
+import java.util.List;
+
+
+@Repository
+public interface ReglementVenteDao extends AbstractRepository<ReglementVente,Long>  {
+    ReglementVente findByReference(String reference);
+    int deleteByReference(String reference);
+
+    List<ReglementVente> findByVenteId(Long id);
+    int deleteByVenteId(Long id);
+    long countByVenteNumeroFacture(String numeroFacture);
+    List<ReglementVente> findByModeReglementId(Long id);
+    int deleteByModeReglementId(Long id);
+    long countByModeReglementId(Long id);
+
+    @Query("SELECT NEW ReglementVente(item.id,item.reference) FROM ReglementVente item")
+    List<ReglementVente> findAllOptimized();
+
+}

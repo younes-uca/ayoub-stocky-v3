@@ -1,0 +1,80 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'reglementAvoirVente.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'reglementAvoirVente.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'reglementAvoirVente.reference' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'reglementAvoirVente.reference' | translate}}" id="1" [(ngModel)]="item.reference"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validReglementAvoirVenteReference}"  />
+                                                    <small class='p-error' *ngIf='!validReglementAvoirVenteReference'>Reference est obligatoire.</small>
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'reglementAvoirVente.dateReglement' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'reglementAvoirVente.dateReglement' | translate}}"  [(ngModel)]="item.dateReglement"
+                                                            dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementAvoirVenteDateReglement}"  >
+                                                    </p-calendar>
+                                                    <small class='p-error' *ngIf='!validReglementAvoirVenteDateReglement'>DateReglement est obligatoire.</small>
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'reglementAvoirVente.montant' | translate}}<span style="color: red;">*</span></label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'reglementAvoirVente.montant' | translate}}" [(ngModel)]="item.montant" [ngClass]="{'ng-invalid ng-dirty' : !validReglementAvoirVenteMontant}"  >
+                                                    </p-inputNumber>
+                                                    <small class='p-error' *ngIf='!validReglementAvoirVenteMontant'>Montant est obligatoire.</small>
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'reglementAvoirVente.vente' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="ventes" [(ngModel)]="item.vente" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="numeroFacture" placeholder="{{'reglementAvoirVente.vente' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'reglementAvoirVente.modeReglement' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="modeReglements" [(ngModel)]="item.modeReglement" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'reglementAvoirVente.modeReglement' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="6">{{'reglementAvoirVente.description' | translate}}</label>
+                                                    <textarea id="6" pInputTextarea rows="5" cols="30" placeholder="{{'reglementAvoirVente.description' | translate}}"  [(ngModel)]="item.description"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="7">{{'reglementAvoirVente.avoirVente' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="avoirVentes" [(ngModel)]="item.avoirVente" id="7" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="numeroFactureAvoirVente" placeholder="{{'reglementAvoirVente.avoirVente' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="grid-step">
+                        <div style="margin-left: auto;">
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check" style="margin:10px" (click)="save()"></button>
+                        </div>
+                        <div>
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+                        </div>
+
+                </div>
+            </ng-template>
+
+
+
+    </p-dialog>

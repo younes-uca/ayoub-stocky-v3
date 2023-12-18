@@ -1,0 +1,52 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'reglementAvoirAchat.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'reglementAvoirAchat.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'reglementAvoirAchat.reference' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reglementAvoirAchat.reference' | translate}}" autofocus  id="1" [(ngModel)]="item.reference">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'reglementAvoirAchat.dateReglement' | translate}}</label>
+                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'reglementAvoirAchat.dateReglement' | translate}}"  [(ngModel)]="item.dateReglement" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'reglementAvoirAchat.montant' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="3" [disabled]="true" placeholder="{{'reglementAvoirAchat.montant' | translate}}" [(ngModel)]="item.montant"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'reglementAvoirAchat.achat' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reglementAvoirAchat.achat' | translate}}" autofocus  id="4" [(ngModel)]="item.achat?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'reglementAvoirAchat.modeReglement' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reglementAvoirAchat.modeReglement' | translate}}" autofocus  id="5" [(ngModel)]="item.modeReglement?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'reglementAvoirAchat.description' | translate}}</label>
+                        <textarea id="6" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'reglementAvoirAchat.description' | translate}}"  [(ngModel)]="item.description"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'reglementAvoirAchat.avoirAchat' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'reglementAvoirAchat.avoirAchat' | translate}}" autofocus  id="7" [(ngModel)]="item.avoirAchat?.numeroFactureAvoirFournisseur">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="grid-footer">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

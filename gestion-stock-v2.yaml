@@ -1,0 +1,487 @@
+Collaborateur_MS(ms1)_ACTOR_ROLES(admin)_SUB-MODULE(commun)_MENU(Collaborateur,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  nom: String REQ
+  prenom: String LABEL_REQ
+  telephone: String REF_REQ
+  adresse: String LARGE
+  creance: BigDecimal
+  description: String LARGE
+
+Fournisseur_MS(ms1)_ACTOR_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Fournisseur,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  ice: String REF_REQ
+  nom: String REQ
+  telephone: String REF_REQ
+  adresse: String LARGE
+  creance: BigDecimal
+  description: String LARGE
+
+Client_MS(ms1)_ACTOR_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Client,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  cin: String REF_REQ
+  nom: String REQ
+  telephone: String REF_REQ
+  adresse: String LARGE
+  creance: BigDecimal
+  description: String LARGE
+
+Proprietaire_MS(ms1)_ACTOR_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Proprietaire):
+  id: Long ID
+  nom: String REQ
+  telephone: String REF_REQ
+  adresse: String LARGE
+  creance: BigDecimal
+  description: String LARGE
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EntrepriseSociete_MS(ms1)_ROLES(admin)_SUB-MODULE(commun)_MENU(Entreprise/Societe,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  nom: String LABEL_REQ
+  ice: String
+  capital: BigDecimal
+
+Categorie_MS(ms1)_ROLES(admin)_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String REF_REQ
+
+Marque_MS(ms1)_ROLES(admin)_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String REF_REQ
+
+UniteMesure_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String REF_REQ
+
+Depot_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ
+  adresse: String
+
+Taxe_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(stock)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ
+  montant: BigDecimal
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Produit_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Produit,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  entrepriseSociete: EntrepriseSociete
+  reference: String REF_REQ
+  barCode: String REQ
+  categorie: Categorie
+  designation: String LABEL_REQ
+  marque: Marque
+  uniteMesure: UniteMesure
+  quantite: BigDecimal REQ
+  prixAchatMoyen: BigDecimal
+  prixVente: BigDecimal REQ
+  stocks: Stock List
+  pathPhoto: String #-------------------------------------hna tof multiple upload
+  seuilAlerte: BigDecimal REQ
+  description: String LARGE
+
+Stock_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(stock)_MENU(Produit Stock,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit
+  depot: Depot
+  quantite: BigDecimal REQ
+
+EntreeProduit_MS(ms1)_ROLES(admin)_SUB-MODULE(entree)_MENU(Entree Produit,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateEntreeProduit: LocalDateTime
+  fournisseur: Fournisseur SEARCH-MULT
+  depot: Depot
+  description: String LARGE
+  entreeProduitItems: EntreeProduitItem List
+
+EntreeProduitItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Entree ProduitItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  description: String LARGE
+  entreeProduit: EntreeProduit
+
+SortieProduit_MS(ms1)_ROLES(admin)_SUB-MODULE(entree)_MENU(Sortie Produit,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateSortieProduit: LocalDateTime
+  depot: Depot
+  description: String LARGE
+  sortieProduitItems: SortieProduitItem List
+
+SortieProduitItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Sortie ProduitItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  description: String LARGE
+  sortieProduit: SortieProduit
+
+Commande_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Commande,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ
+  numeroCommande: String REF_REQ
+  dateCommande: LocalDateTime REQ
+  client: Client REQ
+  etatCommande: EtatCommande #--------Partiellement payée || Payée || Crédit
+  montantHt: BigDecimal REQ
+  montantTva: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  commandeItems: CommandeItem List
+
+CommandeItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(CommandeItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  commande: Commande
+
+EtatCommande_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ #--------Partiellement payée || Payée || Crédit
+
+Achat_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Achat,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  entrepriseSociete: EntrepriseSociete
+  dateFacture: LocalDateTime REQ
+  referenceFacture: String
+  fournisseur: Fournisseur REQ
+  etatAchat: EtatAchat
+  montantHt: BigDecimal REQ
+  montantTva: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  achatItems: AchatItem List
+  avoirAchats: AvoirAchat List
+
+EtatAchat_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+AchatItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(AchatItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REQ
+  footerBarCode: String REQ
+  produit: Produit
+  quantite: BigDecimal REQ
+  quantiteAvoir: BigDecimal
+  quantiteDisponible: BigDecimal
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  achat: Achat
+  depot: Depot
+
+Vente_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Vente,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ
+  entrepriseSociete: EntrepriseSociete REQ
+  codeVente: String REQ
+  dateFacture: LocalDateTime REQ
+  numeroFacture: String REF_REQ
+  client: Client REQ
+  etatVente: EtatVente #--------Partiellement payée || Payée || Crédit
+  montantHt: BigDecimal REQ
+  montantTva: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  venteItems: VenteItem List
+  avoirVentes: AvoirVente List
+  reglementVentes: ReglementVente List
+
+EtatVente_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ #--------Partiellement payée || Payée || Crédit
+
+VenteItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Vente,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ #se genere automatiquement, il est pour facilite l'avoir
+  depot: Depot
+  produit: Produit
+  quantite: BigDecimal REQ
+  quantiteAvoir: BigDecimal
+  quantiteVendue: BigDecimal REQ #------------ = quantite - quantiteAvoir
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  vente: Vente
+
+Devis_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Devis,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  numero: String REF_REQ
+  dateDevis: LocalDateTime REQ
+  client: Client REQ
+  montantHt: BigDecimal REQ
+  montantTva: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  devisItems: DevisItem List
+
+DevisItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Devis,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  devis: Devis
+
+BonPour_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Bon Pour,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  numero: String REF_REQ
+  dateBonPour: LocalDateTime REQ
+  client: Client REQ
+  montantHt: BigDecimal
+  montantTva: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  bonPourItems: BonPourItem List
+
+BonPourItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Bon PourItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  bonPour: BonPour
+
+AvoirAchat_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Avoir Achat,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ
+  entrepriseSociete: EntrepriseSociete REQ
+  codeAvoirAchat: String REQ
+  numeroFactureAvoirFournisseur: String REF_REQ
+  dateFactureAvoirFournisseur: LocalDateTime REQ
+  fournisseur: Fournisseur REQ
+  etatAvoirAchat: EtatAvoirAchat #--------Partiellement payée || Payée || Crédit
+  montantHt: BigDecimal
+  montantTva: BigDecimal
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  achat: Achat
+  avoirAchatItems: AvoirAchatItem List
+
+EtatAvoirAchat_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ #--------Partiellement payée || Payée || Crédit
+
+AvoirAchatItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(AvoirItem Achat,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ #se genere automatiquement, il est pour facilite l'avoir
+  depot: Depot REQ
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  quantiteAvoir: BigDecimal
+  quantiteVendue: BigDecimal REQ #------------ = quantite - quantiteAvoir
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  avoirAchat: AvoirAchat
+
+AvoirVente_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Avoir Vente,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ
+  entrepriseSociete: EntrepriseSociete REQ
+  codeAvoirVente: String REQ
+  numeroFactureAvoirVente: String REF_REQ
+  dateFactureAvoirVente: LocalDateTime REQ
+  client: Client REQ
+  etatAvoirVente: EtatAvoirVente #--------Partiellement payée || Payée || Crédit
+  montantHt: BigDecimal
+  montantTva: BigDecimal
+  montantTtc: BigDecimal REQ
+  description: String LARGE
+  vente: Vente
+  avoirVenteItems: AvoirVenteItem List
+
+EtatAvoirVente_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(commun)_MENU(Divers,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  libelle: String LABEL_REQ #--------Partiellement payée || Payée || Crédit
+
+AvoirVenteItem_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(AvoirItem Client,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  barCode: String REF_REQ #se genere automatiquement, il est pour facilite l'avoir
+  depot: Depot REQ
+  produit: Produit REQ
+  quantite: BigDecimal REQ
+  quantiteAvoir: BigDecimal
+  quantiteVendue: BigDecimal REQ #------------ = quantite - quantiteAvoir
+  prixUnitaireHt: BigDecimal REQ
+  taxe: Taxe #-------------------------------- TauxTva 20% || 0%
+  prixUnitaireTtc: BigDecimal REQ
+  remise: BigDecimal REQ
+  montantHt: BigDecimal REQ
+  montantTtc: BigDecimal REQ
+  avoirVente: AvoirVente
+
+ReglementAchat_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(reglement)_MENU(Reglement Achat,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateReglement: LocalDateTime REQ
+  montant: BigDecimal REQ
+  achat: Achat
+  modeReglement: ModeReglement REQ
+  description: String LARGE
+
+ReglementVente_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(reglement)_MENU(Reglement Vente,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateReglement: LocalDateTime REQ
+  montant: BigDecimal REQ
+  vente: Vente REQ
+  modeReglement: ModeReglement REQ
+  description: String LARGE
+
+ReglementAvoirAchat_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(reglement)_MENU(Reglement Avoir Achat,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateReglement: LocalDateTime REQ
+  montant: BigDecimal REQ
+  achat: Achat
+  modeReglement: ModeReglement REQ
+  description: String LARGE
+  avoirAchat: AvoirAchat
+
+ReglementAvoirVente_MS(ms1)_ROLES(admin)_EXPORT_IMPORTABLE_SUB-MODULE(reglement)_MENU(Reglement Avoir Vente,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  reference: String REF_REQ
+  dateReglement: LocalDateTime REQ
+  montant: BigDecimal REQ
+  vente: Vente
+  modeReglement: ModeReglement
+  description: String LARGE
+  avoirVente: AvoirVente
+
+Inventaire_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Inventaire,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  entrepriseSociete: EntrepriseSociete
+  depot: Depot
+  reference: String REF_REQ
+  dateInventaire: LocalDateTime REQ
+  description: String LARGE
+  inventaireItems: InventaireItem List
+
+InventaireItem_IGNORE-FRONT_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(InventaireItem,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  produit: Produit
+  quantiteEstime: BigDecimal REQ
+  quantiteReelle: BigDecimal REQ
+  inventaire: Inventaire
+
+Tache_MS(ms1)_ROLES(admin)_SUB-MODULE(stock)_MENU(Tache,pi pi-fw pi-pencil)_ICON(pi pi-check):
+  id: Long ID
+  dateDebut: LocalDateTime
+  dateFin: LocalDateTime
+  collaborateur: Collaborateur
+  description: String LARGE
+
+#---------------------------gestion des cheques et des effets
+
+ProprietaireBanque_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Proprietaire Banque):
+  id: Long ID
+  proprietaire: Proprietaire
+  banque: Banque
+  compte: Compte
+
+
+TransactionFournisseur_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Transaction):
+  id: Long ID
+  typeInstrument: TypeInstrument # CHÈQUE/EFFET/AUTRE
+  dateEmission: LocalDateTime REQ
+  montant: BigDecimal REQ
+  dateTransaction: LocalDateTime REQ
+  typeTransaction: TypeTransaction # dépôt ou retrait
+  compte: Compte
+  dateEncaissement: LocalDateTime REQ
+  pathPhoto: String # upload photo
+  description: String LARGE
+  etatTransaction: EtatTransaction
+
+
+TypeTransaction_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Banque):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+
+ModeReglement_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Banque):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+EtatTransaction_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Banque):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+Compte_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Compte):
+  id: Long ID
+  numeroCompte: String LABEL_REQ
+  banque: Banque
+  proprietaire: Proprietaire
+  solde: BigDecimal
+
+ChequeEffet_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Cheque/Effet):
+  id: Long ID
+  numero: String REF_REQ
+  dateEmission: LocalDateTime REQ
+  montant: BigDecimal REQ
+  fournisseur: Fournisseur
+
+TypeInstrument_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Type Instrument):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+Banque_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Banque):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+Depense_MS(ms1)_ROLES(admin)_SUB-MODULE(depense)_MENU(Depense):
+  id: Long ID
+  dateDepense: LocalDateTime REQ
+  libelle: String REQ
+  montant: BigDecimal REQ
+  description: String LARGE
+
+Raison_MS(ms1)_ROLES(admin)_SUB-MODULE(Transfert)_MENU(Banque):
+  id: Long ID
+  libelle: String LABEL_REQ
+
+Transfert_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(Transfert):
+  id: Long ID
+  reference: String
+  raison: Raison # Vente/reapprovisonnement des stocks
+  dateTransfert: LocalDateTime REQ
+  description: String LARGE
+  transfertItems: TransfertItem List
+
+TransfertItem_MS(ms1)_ROLES(admin)_SUB-MODULE(gestionchequeffet)_MENU(TransfertItem):
+  id: Long ID
+  depot: Depot
+  produit: Produit
+  quantite: BigDecimal REQ
+  transfert: Transfert
+
+$CONFIG:
+  ms: "{name=ms1,packaging=myms1,url=localhost:8090/api/v1}"

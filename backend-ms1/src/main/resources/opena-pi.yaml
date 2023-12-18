@@ -1,0 +1,4591 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /proprietaires:
+    get:
+      summary: List all proprietaires
+      operationId: listProprietaires
+      tags:
+        - proprietaires
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of proprietaires
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Proprietaires'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a proprietaire
+      operationId: createProprietaires
+      tags:
+        - proprietaires
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /proprietaires/{proprietaireId}:
+    get:
+      summary: Info for a specific proprietaire
+      operationId: showProprietaireById
+      tags:
+        - proprietaires
+      parameters:
+        - name: proprietaireId
+          in: path
+          required: true
+          description: The id of the proprietaire to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Proprietaires'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatTransactions:
+    get:
+      summary: List all etatTransactions
+      operationId: listEtatTransactions
+      tags:
+        - etatTransactions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatTransactions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatTransactions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatTransaction
+      operationId: createEtatTransactions
+      tags:
+        - etatTransactions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatTransactions/{etatTransactionId}:
+    get:
+      summary: Info for a specific etatTransaction
+      operationId: showEtatTransactionById
+      tags:
+        - etatTransactions
+      parameters:
+        - name: etatTransactionId
+          in: path
+          required: true
+          description: The id of the etatTransaction to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatTransactions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirVentes:
+    get:
+      summary: List all avoirVentes
+      operationId: listAvoirVentes
+      tags:
+        - avoirVentes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avoirVentes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/AvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avoirVente
+      operationId: createAvoirVentes
+      tags:
+        - avoirVentes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirVentes/{avoirVenteId}:
+    get:
+      summary: Info for a specific avoirVente
+      operationId: showAvoirVenteById
+      tags:
+        - avoirVentes
+      parameters:
+        - name: avoirVenteId
+          in: path
+          required: true
+          description: The id of the avoirVente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/AvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sortieProduitItems:
+    get:
+      summary: List all sortieProduitItems
+      operationId: listSortieProduitItems
+      tags:
+        - sortieProduitItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of sortieProduitItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/SortieProduitItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a sortieProduitItem
+      operationId: createSortieProduitItems
+      tags:
+        - sortieProduitItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sortieProduitItems/{sortieProduitItemId}:
+    get:
+      summary: Info for a specific sortieProduitItem
+      operationId: showSortieProduitItemById
+      tags:
+        - sortieProduitItems
+      parameters:
+        - name: sortieProduitItemId
+          in: path
+          required: true
+          description: The id of the sortieProduitItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/SortieProduitItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementVentes:
+    get:
+      summary: List all reglementVentes
+      operationId: listReglementVentes
+      tags:
+        - reglementVentes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reglementVentes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReglementVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reglementVente
+      operationId: createReglementVentes
+      tags:
+        - reglementVentes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementVentes/{reglementVenteId}:
+    get:
+      summary: Info for a specific reglementVente
+      operationId: showReglementVenteById
+      tags:
+        - reglementVentes
+      parameters:
+        - name: reglementVenteId
+          in: path
+          required: true
+          description: The id of the reglementVente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReglementVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /proprietaireBanques:
+    get:
+      summary: List all proprietaireBanques
+      operationId: listProprietaireBanques
+      tags:
+        - proprietaireBanques
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of proprietaireBanques
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ProprietaireBanques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a proprietaireBanque
+      operationId: createProprietaireBanques
+      tags:
+        - proprietaireBanques
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /proprietaireBanques/{proprietaireBanqueId}:
+    get:
+      summary: Info for a specific proprietaireBanque
+      operationId: showProprietaireBanqueById
+      tags:
+        - proprietaireBanques
+      parameters:
+        - name: proprietaireBanqueId
+          in: path
+          required: true
+          description: The id of the proprietaireBanque to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ProprietaireBanques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /modeReglements:
+    get:
+      summary: List all modeReglements
+      operationId: listModeReglements
+      tags:
+        - modeReglements
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of modeReglements
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ModeReglements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a modeReglement
+      operationId: createModeReglements
+      tags:
+        - modeReglements
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /modeReglements/{modeReglementId}:
+    get:
+      summary: Info for a specific modeReglement
+      operationId: showModeReglementById
+      tags:
+        - modeReglements
+      parameters:
+        - name: modeReglementId
+          in: path
+          required: true
+          description: The id of the modeReglement to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ModeReglements'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taxes:
+    get:
+      summary: List all taxes
+      operationId: listTaxes
+      tags:
+        - taxes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of taxes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Taxes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a taxe
+      operationId: createTaxes
+      tags:
+        - taxes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taxes/{taxeId}:
+    get:
+      summary: Info for a specific taxe
+      operationId: showTaxeById
+      tags:
+        - taxes
+      parameters:
+        - name: taxeId
+          in: path
+          required: true
+          description: The id of the taxe to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Taxes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entreeProduits:
+    get:
+      summary: List all entreeProduits
+      operationId: listEntreeProduits
+      tags:
+        - entreeProduits
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of entreeProduits
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EntreeProduits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a entreeProduit
+      operationId: createEntreeProduits
+      tags:
+        - entreeProduits
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entreeProduits/{entreeProduitId}:
+    get:
+      summary: Info for a specific entreeProduit
+      operationId: showEntreeProduitById
+      tags:
+        - entreeProduits
+      parameters:
+        - name: entreeProduitId
+          in: path
+          required: true
+          description: The id of the entreeProduit to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EntreeProduits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /achatItems:
+    get:
+      summary: List all achatItems
+      operationId: listAchatItems
+      tags:
+        - achatItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of achatItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/AchatItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a achatItem
+      operationId: createAchatItems
+      tags:
+        - achatItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /achatItems/{achatItemId}:
+    get:
+      summary: Info for a specific achatItem
+      operationId: showAchatItemById
+      tags:
+        - achatItems
+      parameters:
+        - name: achatItemId
+          in: path
+          required: true
+          description: The id of the achatItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/AchatItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /categories:
+    get:
+      summary: List all categories
+      operationId: listCategories
+      tags:
+        - categories
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of categories
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Categories'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a categorie
+      operationId: createCategories
+      tags:
+        - categories
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /categories/{categorieId}:
+    get:
+      summary: Info for a specific categorie
+      operationId: showCategorieById
+      tags:
+        - categories
+      parameters:
+        - name: categorieId
+          in: path
+          required: true
+          description: The id of the categorie to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Categories'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /commandeItems:
+    get:
+      summary: List all commandeItems
+      operationId: listCommandeItems
+      tags:
+        - commandeItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of commandeItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CommandeItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a commandeItem
+      operationId: createCommandeItems
+      tags:
+        - commandeItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /commandeItems/{commandeItemId}:
+    get:
+      summary: Info for a specific commandeItem
+      operationId: showCommandeItemById
+      tags:
+        - commandeItems
+      parameters:
+        - name: commandeItemId
+          in: path
+          required: true
+          description: The id of the commandeItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CommandeItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAvoirAchats:
+    get:
+      summary: List all reglementAvoirAchats
+      operationId: listReglementAvoirAchats
+      tags:
+        - reglementAvoirAchats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reglementAvoirAchats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReglementAvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reglementAvoirAchat
+      operationId: createReglementAvoirAchats
+      tags:
+        - reglementAvoirAchats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAvoirAchats/{reglementAvoirAchatId}:
+    get:
+      summary: Info for a specific reglementAvoirAchat
+      operationId: showReglementAvoirAchatById
+      tags:
+        - reglementAvoirAchats
+      parameters:
+        - name: reglementAvoirAchatId
+          in: path
+          required: true
+          description: The id of the reglementAvoirAchat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReglementAvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAvoirVentes:
+    get:
+      summary: List all etatAvoirVentes
+      operationId: listEtatAvoirVentes
+      tags:
+        - etatAvoirVentes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatAvoirVentes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatAvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatAvoirVente
+      operationId: createEtatAvoirVentes
+      tags:
+        - etatAvoirVentes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAvoirVentes/{etatAvoirVenteId}:
+    get:
+      summary: Info for a specific etatAvoirVente
+      operationId: showEtatAvoirVenteById
+      tags:
+        - etatAvoirVentes
+      parameters:
+        - name: etatAvoirVenteId
+          in: path
+          required: true
+          description: The id of the etatAvoirVente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatAvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /achats:
+    get:
+      summary: List all achats
+      operationId: listAchats
+      tags:
+        - achats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of achats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Achats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a achat
+      operationId: createAchats
+      tags:
+        - achats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /achats/{achatId}:
+    get:
+      summary: Info for a specific achat
+      operationId: showAchatById
+      tags:
+        - achats
+      parameters:
+        - name: achatId
+          in: path
+          required: true
+          description: The id of the achat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Achats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /bonPourItems:
+    get:
+      summary: List all bonPourItems
+      operationId: listBonPourItems
+      tags:
+        - bonPourItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of bonPourItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/BonPourItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a bonPourItem
+      operationId: createBonPourItems
+      tags:
+        - bonPourItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /bonPourItems/{bonPourItemId}:
+    get:
+      summary: Info for a specific bonPourItem
+      operationId: showBonPourItemById
+      tags:
+        - bonPourItems
+      parameters:
+        - name: bonPourItemId
+          in: path
+          required: true
+          description: The id of the bonPourItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/BonPourItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAvoirAchats:
+    get:
+      summary: List all etatAvoirAchats
+      operationId: listEtatAvoirAchats
+      tags:
+        - etatAvoirAchats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatAvoirAchats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatAvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatAvoirAchat
+      operationId: createEtatAvoirAchats
+      tags:
+        - etatAvoirAchats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAvoirAchats/{etatAvoirAchatId}:
+    get:
+      summary: Info for a specific etatAvoirAchat
+      operationId: showEtatAvoirAchatById
+      tags:
+        - etatAvoirAchats
+      parameters:
+        - name: etatAvoirAchatId
+          in: path
+          required: true
+          description: The id of the etatAvoirAchat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatAvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /depenses:
+    get:
+      summary: List all depenses
+      operationId: listDepenses
+      tags:
+        - depenses
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of depenses
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Depenses'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a depense
+      operationId: createDepenses
+      tags:
+        - depenses
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /depenses/{depenseId}:
+    get:
+      summary: Info for a specific depense
+      operationId: showDepenseById
+      tags:
+        - depenses
+      parameters:
+        - name: depenseId
+          in: path
+          required: true
+          description: The id of the depense to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Depenses'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /venteItems:
+    get:
+      summary: List all venteItems
+      operationId: listVenteItems
+      tags:
+        - venteItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of venteItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/VenteItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a venteItem
+      operationId: createVenteItems
+      tags:
+        - venteItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /venteItems/{venteItemId}:
+    get:
+      summary: Info for a specific venteItem
+      operationId: showVenteItemById
+      tags:
+        - venteItems
+      parameters:
+        - name: venteItemId
+          in: path
+          required: true
+          description: The id of the venteItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/VenteItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /deviss:
+    get:
+      summary: List all deviss
+      operationId: listDeviss
+      tags:
+        - deviss
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of deviss
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Deviss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a devis
+      operationId: createDeviss
+      tags:
+        - deviss
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /deviss/{devisId}:
+    get:
+      summary: Info for a specific devis
+      operationId: showDevisById
+      tags:
+        - deviss
+      parameters:
+        - name: devisId
+          in: path
+          required: true
+          description: The id of the devis to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Deviss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /depots:
+    get:
+      summary: List all depots
+      operationId: listDepots
+      tags:
+        - depots
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of depots
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Depots'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a depot
+      operationId: createDepots
+      tags:
+        - depots
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /depots/{depotId}:
+    get:
+      summary: Info for a specific depot
+      operationId: showDepotById
+      tags:
+        - depots
+      parameters:
+        - name: depotId
+          in: path
+          required: true
+          description: The id of the depot to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Depots'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirAchatItems:
+    get:
+      summary: List all avoirAchatItems
+      operationId: listAvoirAchatItems
+      tags:
+        - avoirAchatItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avoirAchatItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/AvoirAchatItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avoirAchatItem
+      operationId: createAvoirAchatItems
+      tags:
+        - avoirAchatItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirAchatItems/{avoirAchatItemId}:
+    get:
+      summary: Info for a specific avoirAchatItem
+      operationId: showAvoirAchatItemById
+      tags:
+        - avoirAchatItems
+      parameters:
+        - name: avoirAchatItemId
+          in: path
+          required: true
+          description: The id of the avoirAchatItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/AvoirAchatItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAchats:
+    get:
+      summary: List all reglementAchats
+      operationId: listReglementAchats
+      tags:
+        - reglementAchats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reglementAchats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReglementAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reglementAchat
+      operationId: createReglementAchats
+      tags:
+        - reglementAchats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAchats/{reglementAchatId}:
+    get:
+      summary: Info for a specific reglementAchat
+      operationId: showReglementAchatById
+      tags:
+        - reglementAchats
+      parameters:
+        - name: reglementAchatId
+          in: path
+          required: true
+          description: The id of the reglementAchat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReglementAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventaireItems:
+    get:
+      summary: List all inventaireItems
+      operationId: listInventaireItems
+      tags:
+        - inventaireItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of inventaireItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/InventaireItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a inventaireItem
+      operationId: createInventaireItems
+      tags:
+        - inventaireItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventaireItems/{inventaireItemId}:
+    get:
+      summary: Info for a specific inventaireItem
+      operationId: showInventaireItemById
+      tags:
+        - inventaireItems
+      parameters:
+        - name: inventaireItemId
+          in: path
+          required: true
+          description: The id of the inventaireItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/InventaireItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /fournisseurs:
+    get:
+      summary: List all fournisseurs
+      operationId: listFournisseurs
+      tags:
+        - fournisseurs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of fournisseurs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Fournisseurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a fournisseur
+      operationId: createFournisseurs
+      tags:
+        - fournisseurs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /fournisseurs/{fournisseurId}:
+    get:
+      summary: Info for a specific fournisseur
+      operationId: showFournisseurById
+      tags:
+        - fournisseurs
+      parameters:
+        - name: fournisseurId
+          in: path
+          required: true
+          description: The id of the fournisseur to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Fournisseurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /produits:
+    get:
+      summary: List all produits
+      operationId: listProduits
+      tags:
+        - produits
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of produits
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Produits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a produit
+      operationId: createProduits
+      tags:
+        - produits
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /produits/{produitId}:
+    get:
+      summary: Info for a specific produit
+      operationId: showProduitById
+      tags:
+        - produits
+      parameters:
+        - name: produitId
+          in: path
+          required: true
+          description: The id of the produit to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Produits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeTransactions:
+    get:
+      summary: List all typeTransactions
+      operationId: listTypeTransactions
+      tags:
+        - typeTransactions
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of typeTransactions
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TypeTransactions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a typeTransaction
+      operationId: createTypeTransactions
+      tags:
+        - typeTransactions
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeTransactions/{typeTransactionId}:
+    get:
+      summary: Info for a specific typeTransaction
+      operationId: showTypeTransactionById
+      tags:
+        - typeTransactions
+      parameters:
+        - name: typeTransactionId
+          in: path
+          required: true
+          description: The id of the typeTransaction to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TypeTransactions'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /uniteMesures:
+    get:
+      summary: List all uniteMesures
+      operationId: listUniteMesures
+      tags:
+        - uniteMesures
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of uniteMesures
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/UniteMesures'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a uniteMesure
+      operationId: createUniteMesures
+      tags:
+        - uniteMesures
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /uniteMesures/{uniteMesureId}:
+    get:
+      summary: Info for a specific uniteMesure
+      operationId: showUniteMesureById
+      tags:
+        - uniteMesures
+      parameters:
+        - name: uniteMesureId
+          in: path
+          required: true
+          description: The id of the uniteMesure to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/UniteMesures'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /stocks:
+    get:
+      summary: List all stocks
+      operationId: listStocks
+      tags:
+        - stocks
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of stocks
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Stocks'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a stock
+      operationId: createStocks
+      tags:
+        - stocks
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /stocks/{stockId}:
+    get:
+      summary: Info for a specific stock
+      operationId: showStockById
+      tags:
+        - stocks
+      parameters:
+        - name: stockId
+          in: path
+          required: true
+          description: The id of the stock to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Stocks'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /comptes:
+    get:
+      summary: List all comptes
+      operationId: listComptes
+      tags:
+        - comptes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of comptes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Comptes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a compte
+      operationId: createComptes
+      tags:
+        - comptes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /comptes/{compteId}:
+    get:
+      summary: Info for a specific compte
+      operationId: showCompteById
+      tags:
+        - comptes
+      parameters:
+        - name: compteId
+          in: path
+          required: true
+          description: The id of the compte to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Comptes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatCommandes:
+    get:
+      summary: List all etatCommandes
+      operationId: listEtatCommandes
+      tags:
+        - etatCommandes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatCommandes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatCommandes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatCommande
+      operationId: createEtatCommandes
+      tags:
+        - etatCommandes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatCommandes/{etatCommandeId}:
+    get:
+      summary: Info for a specific etatCommande
+      operationId: showEtatCommandeById
+      tags:
+        - etatCommandes
+      parameters:
+        - name: etatCommandeId
+          in: path
+          required: true
+          description: The id of the etatCommande to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatCommandes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /chequeEffets:
+    get:
+      summary: List all chequeEffets
+      operationId: listChequeEffets
+      tags:
+        - chequeEffets
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of chequeEffets
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ChequeEffets'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a chequeEffet
+      operationId: createChequeEffets
+      tags:
+        - chequeEffets
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /chequeEffets/{chequeEffetId}:
+    get:
+      summary: Info for a specific chequeEffet
+      operationId: showChequeEffetById
+      tags:
+        - chequeEffets
+      parameters:
+        - name: chequeEffetId
+          in: path
+          required: true
+          description: The id of the chequeEffet to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ChequeEffets'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transactionFournisseurs:
+    get:
+      summary: List all transactionFournisseurs
+      operationId: listTransactionFournisseurs
+      tags:
+        - transactionFournisseurs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of transactionFournisseurs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TransactionFournisseurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a transactionFournisseur
+      operationId: createTransactionFournisseurs
+      tags:
+        - transactionFournisseurs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transactionFournisseurs/{transactionFournisseurId}:
+    get:
+      summary: Info for a specific transactionFournisseur
+      operationId: showTransactionFournisseurById
+      tags:
+        - transactionFournisseurs
+      parameters:
+        - name: transactionFournisseurId
+          in: path
+          required: true
+          description: The id of the transactionFournisseur to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TransactionFournisseurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventaires:
+    get:
+      summary: List all inventaires
+      operationId: listInventaires
+      tags:
+        - inventaires
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of inventaires
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Inventaires'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a inventaire
+      operationId: createInventaires
+      tags:
+        - inventaires
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /inventaires/{inventaireId}:
+    get:
+      summary: Info for a specific inventaire
+      operationId: showInventaireById
+      tags:
+        - inventaires
+      parameters:
+        - name: inventaireId
+          in: path
+          required: true
+          description: The id of the inventaire to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Inventaires'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transferts:
+    get:
+      summary: List all transferts
+      operationId: listTransferts
+      tags:
+        - transferts
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of transferts
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Transferts'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a transfert
+      operationId: createTransferts
+      tags:
+        - transferts
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transferts/{transfertId}:
+    get:
+      summary: Info for a specific transfert
+      operationId: showTransfertById
+      tags:
+        - transferts
+      parameters:
+        - name: transfertId
+          in: path
+          required: true
+          description: The id of the transfert to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Transferts'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transfertItems:
+    get:
+      summary: List all transfertItems
+      operationId: listTransfertItems
+      tags:
+        - transfertItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of transfertItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TransfertItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a transfertItem
+      operationId: createTransfertItems
+      tags:
+        - transfertItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /transfertItems/{transfertItemId}:
+    get:
+      summary: Info for a specific transfertItem
+      operationId: showTransfertItemById
+      tags:
+        - transfertItems
+      parameters:
+        - name: transfertItemId
+          in: path
+          required: true
+          description: The id of the transfertItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TransfertItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /ventes:
+    get:
+      summary: List all ventes
+      operationId: listVentes
+      tags:
+        - ventes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of ventes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Ventes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a vente
+      operationId: createVentes
+      tags:
+        - ventes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /ventes/{venteId}:
+    get:
+      summary: Info for a specific vente
+      operationId: showVenteById
+      tags:
+        - ventes
+      parameters:
+        - name: venteId
+          in: path
+          required: true
+          description: The id of the vente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Ventes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /commandes:
+    get:
+      summary: List all commandes
+      operationId: listCommandes
+      tags:
+        - commandes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of commandes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Commandes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a commande
+      operationId: createCommandes
+      tags:
+        - commandes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /commandes/{commandeId}:
+    get:
+      summary: Info for a specific commande
+      operationId: showCommandeById
+      tags:
+        - commandes
+      parameters:
+        - name: commandeId
+          in: path
+          required: true
+          description: The id of the commande to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Commandes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirAchats:
+    get:
+      summary: List all avoirAchats
+      operationId: listAvoirAchats
+      tags:
+        - avoirAchats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avoirAchats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/AvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avoirAchat
+      operationId: createAvoirAchats
+      tags:
+        - avoirAchats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirAchats/{avoirAchatId}:
+    get:
+      summary: Info for a specific avoirAchat
+      operationId: showAvoirAchatById
+      tags:
+        - avoirAchats
+      parameters:
+        - name: avoirAchatId
+          in: path
+          required: true
+          description: The id of the avoirAchat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/AvoirAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sortieProduits:
+    get:
+      summary: List all sortieProduits
+      operationId: listSortieProduits
+      tags:
+        - sortieProduits
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of sortieProduits
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/SortieProduits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a sortieProduit
+      operationId: createSortieProduits
+      tags:
+        - sortieProduits
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /sortieProduits/{sortieProduitId}:
+    get:
+      summary: Info for a specific sortieProduit
+      operationId: showSortieProduitById
+      tags:
+        - sortieProduits
+      parameters:
+        - name: sortieProduitId
+          in: path
+          required: true
+          description: The id of the sortieProduit to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/SortieProduits'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /clients:
+    get:
+      summary: List all clients
+      operationId: listClients
+      tags:
+        - clients
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of clients
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Clients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a client
+      operationId: createClients
+      tags:
+        - clients
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /clients/{clientId}:
+    get:
+      summary: Info for a specific client
+      operationId: showClientById
+      tags:
+        - clients
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          description: The id of the client to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Clients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAchats:
+    get:
+      summary: List all etatAchats
+      operationId: listEtatAchats
+      tags:
+        - etatAchats
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatAchats
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatAchat
+      operationId: createEtatAchats
+      tags:
+        - etatAchats
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatAchats/{etatAchatId}:
+    get:
+      summary: Info for a specific etatAchat
+      operationId: showEtatAchatById
+      tags:
+        - etatAchats
+      parameters:
+        - name: etatAchatId
+          in: path
+          required: true
+          description: The id of the etatAchat to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatAchats'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /raisons:
+    get:
+      summary: List all raisons
+      operationId: listRaisons
+      tags:
+        - raisons
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of raisons
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Raisons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a raison
+      operationId: createRaisons
+      tags:
+        - raisons
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /raisons/{raisonId}:
+    get:
+      summary: Info for a specific raison
+      operationId: showRaisonById
+      tags:
+        - raisons
+      parameters:
+        - name: raisonId
+          in: path
+          required: true
+          description: The id of the raison to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Raisons'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entreeProduitItems:
+    get:
+      summary: List all entreeProduitItems
+      operationId: listEntreeProduitItems
+      tags:
+        - entreeProduitItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of entreeProduitItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EntreeProduitItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a entreeProduitItem
+      operationId: createEntreeProduitItems
+      tags:
+        - entreeProduitItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entreeProduitItems/{entreeProduitItemId}:
+    get:
+      summary: Info for a specific entreeProduitItem
+      operationId: showEntreeProduitItemById
+      tags:
+        - entreeProduitItems
+      parameters:
+        - name: entreeProduitItemId
+          in: path
+          required: true
+          description: The id of the entreeProduitItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EntreeProduitItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /marques:
+    get:
+      summary: List all marques
+      operationId: listMarques
+      tags:
+        - marques
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of marques
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Marques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a marque
+      operationId: createMarques
+      tags:
+        - marques
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /marques/{marqueId}:
+    get:
+      summary: Info for a specific marque
+      operationId: showMarqueById
+      tags:
+        - marques
+      parameters:
+        - name: marqueId
+          in: path
+          required: true
+          description: The id of the marque to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Marques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entrepriseSocietes:
+    get:
+      summary: List all entrepriseSocietes
+      operationId: listEntrepriseSocietes
+      tags:
+        - entrepriseSocietes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of entrepriseSocietes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EntrepriseSocietes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a entrepriseSociete
+      operationId: createEntrepriseSocietes
+      tags:
+        - entrepriseSocietes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /entrepriseSocietes/{entrepriseSocieteId}:
+    get:
+      summary: Info for a specific entrepriseSociete
+      operationId: showEntrepriseSocieteById
+      tags:
+        - entrepriseSocietes
+      parameters:
+        - name: entrepriseSocieteId
+          in: path
+          required: true
+          description: The id of the entrepriseSociete to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EntrepriseSocietes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAvoirVentes:
+    get:
+      summary: List all reglementAvoirVentes
+      operationId: listReglementAvoirVentes
+      tags:
+        - reglementAvoirVentes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of reglementAvoirVentes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/ReglementAvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a reglementAvoirVente
+      operationId: createReglementAvoirVentes
+      tags:
+        - reglementAvoirVentes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /reglementAvoirVentes/{reglementAvoirVenteId}:
+    get:
+      summary: Info for a specific reglementAvoirVente
+      operationId: showReglementAvoirVenteById
+      tags:
+        - reglementAvoirVentes
+      parameters:
+        - name: reglementAvoirVenteId
+          in: path
+          required: true
+          description: The id of the reglementAvoirVente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/ReglementAvoirVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /bonPours:
+    get:
+      summary: List all bonPours
+      operationId: listBonPours
+      tags:
+        - bonPours
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of bonPours
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/BonPours'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a bonPour
+      operationId: createBonPours
+      tags:
+        - bonPours
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /bonPours/{bonPourId}:
+    get:
+      summary: Info for a specific bonPour
+      operationId: showBonPourById
+      tags:
+        - bonPours
+      parameters:
+        - name: bonPourId
+          in: path
+          required: true
+          description: The id of the bonPour to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/BonPours'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taches:
+    get:
+      summary: List all taches
+      operationId: listTaches
+      tags:
+        - taches
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of taches
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Taches'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a tache
+      operationId: createTaches
+      tags:
+        - taches
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /taches/{tacheId}:
+    get:
+      summary: Info for a specific tache
+      operationId: showTacheById
+      tags:
+        - taches
+      parameters:
+        - name: tacheId
+          in: path
+          required: true
+          description: The id of the tache to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Taches'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeInstruments:
+    get:
+      summary: List all typeInstruments
+      operationId: listTypeInstruments
+      tags:
+        - typeInstruments
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of typeInstruments
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TypeInstruments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a typeInstrument
+      operationId: createTypeInstruments
+      tags:
+        - typeInstruments
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeInstruments/{typeInstrumentId}:
+    get:
+      summary: Info for a specific typeInstrument
+      operationId: showTypeInstrumentById
+      tags:
+        - typeInstruments
+      parameters:
+        - name: typeInstrumentId
+          in: path
+          required: true
+          description: The id of the typeInstrument to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TypeInstruments'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborateurs:
+    get:
+      summary: List all collaborateurs
+      operationId: listCollaborateurs
+      tags:
+        - collaborateurs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of collaborateurs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Collaborateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a collaborateur
+      operationId: createCollaborateurs
+      tags:
+        - collaborateurs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /collaborateurs/{collaborateurId}:
+    get:
+      summary: Info for a specific collaborateur
+      operationId: showCollaborateurById
+      tags:
+        - collaborateurs
+      parameters:
+        - name: collaborateurId
+          in: path
+          required: true
+          description: The id of the collaborateur to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Collaborateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatVentes:
+    get:
+      summary: List all etatVentes
+      operationId: listEtatVentes
+      tags:
+        - etatVentes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatVentes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatVente
+      operationId: createEtatVentes
+      tags:
+        - etatVentes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatVentes/{etatVenteId}:
+    get:
+      summary: Info for a specific etatVente
+      operationId: showEtatVenteById
+      tags:
+        - etatVentes
+      parameters:
+        - name: etatVenteId
+          in: path
+          required: true
+          description: The id of the etatVente to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatVentes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /devisItems:
+    get:
+      summary: List all devisItems
+      operationId: listDevisItems
+      tags:
+        - devisItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of devisItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/DevisItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a devisItem
+      operationId: createDevisItems
+      tags:
+        - devisItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /devisItems/{devisItemId}:
+    get:
+      summary: Info for a specific devisItem
+      operationId: showDevisItemById
+      tags:
+        - devisItems
+      parameters:
+        - name: devisItemId
+          in: path
+          required: true
+          description: The id of the devisItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/DevisItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirVenteItems:
+    get:
+      summary: List all avoirVenteItems
+      operationId: listAvoirVenteItems
+      tags:
+        - avoirVenteItems
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of avoirVenteItems
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/AvoirVenteItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a avoirVenteItem
+      operationId: createAvoirVenteItems
+      tags:
+        - avoirVenteItems
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /avoirVenteItems/{avoirVenteItemId}:
+    get:
+      summary: Info for a specific avoirVenteItem
+      operationId: showAvoirVenteItemById
+      tags:
+        - avoirVenteItems
+      parameters:
+        - name: avoirVenteItemId
+          in: path
+          required: true
+          description: The id of the avoirVenteItem to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/AvoirVenteItems'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /banques:
+    get:
+      summary: List all banques
+      operationId: listBanques
+      tags:
+        - banques
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of banques
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Banques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a banque
+      operationId: createBanques
+      tags:
+        - banques
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /banques/{banqueId}:
+    get:
+      summary: Info for a specific banque
+      operationId: showBanqueById
+      tags:
+        - banques
+      parameters:
+        - name: banqueId
+          in: path
+          required: true
+          description: The id of the banque to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Banques'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  Proprietaire:
+    type: "object"
+    required:
+      - id
+      - nom
+      - telephone
+      - adresse
+      - creance
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      nom:
+        type: string
+      telephone:
+        type: string
+      adresse:
+        type: string
+      creance:
+        type: number
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Proprietaires:
+    type: array
+    items:
+      $ref: '#/definitions/Proprietaire'
+  EtatTransaction:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatTransactions:
+    type: array
+    items:
+      $ref: '#/definitions/EtatTransaction'
+  AvoirVente:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - codeAvoirVente
+      - numeroFactureAvoirVente
+      - dateFactureAvoirVente
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      codeAvoirVente:
+        type: string
+      numeroFactureAvoirVente:
+        type: string
+      dateFactureAvoirVente:
+        type: date
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  AvoirVentes:
+    type: array
+    items:
+      $ref: '#/definitions/AvoirVente'
+  SortieProduitItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+      - description
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+      description:
+        type: string
+  SortieProduitItems:
+    type: array
+    items:
+      $ref: '#/definitions/SortieProduitItem'
+  ReglementVente:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateReglement
+      - montant
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateReglement:
+        type: date
+      montant:
+        type: number
+      description:
+        type: string
+  ReglementVentes:
+    type: array
+    items:
+      $ref: '#/definitions/ReglementVente'
+  ProprietaireBanque:
+    type: "object"
+    required:
+      - id
+    properties:
+      id:
+        type: int
+  ProprietaireBanques:
+    type: array
+    items:
+      $ref: '#/definitions/ProprietaireBanque'
+  ModeReglement:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  ModeReglements:
+    type: array
+    items:
+      $ref: '#/definitions/ModeReglement'
+  Taxe:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - montant
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      montant:
+        type: number
+  Taxes:
+    type: array
+    items:
+      $ref: '#/definitions/Taxe'
+  EntreeProduit:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateEntreeProduit
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateEntreeProduit:
+        type: date
+      description:
+        type: string
+  EntreeProduits:
+    type: array
+    items:
+      $ref: '#/definitions/EntreeProduit'
+  AchatItem:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - footerBarCode
+      - quantite
+      - quantiteAvoir
+      - quantiteDisponible
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      footerBarCode:
+        type: string
+      quantite:
+        type: number
+      quantiteAvoir:
+        type: number
+      quantiteDisponible:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  AchatItems:
+    type: array
+    items:
+      $ref: '#/definitions/AchatItem'
+  Categorie:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  Categories:
+    type: array
+    items:
+      $ref: '#/definitions/Categorie'
+  CommandeItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  CommandeItems:
+    type: array
+    items:
+      $ref: '#/definitions/CommandeItem'
+  ReglementAvoirAchat:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateReglement
+      - montant
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateReglement:
+        type: date
+      montant:
+        type: number
+      description:
+        type: string
+  ReglementAvoirAchats:
+    type: array
+    items:
+      $ref: '#/definitions/ReglementAvoirAchat'
+  EtatAvoirVente:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatAvoirVentes:
+    type: array
+    items:
+      $ref: '#/definitions/EtatAvoirVente'
+  Achat:
+    type: "object"
+    required:
+      - id
+      - dateFacture
+      - referenceFacture
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      dateFacture:
+        type: date
+      referenceFacture:
+        type: string
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  Achats:
+    type: array
+    items:
+      $ref: '#/definitions/Achat'
+  BonPourItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  BonPourItems:
+    type: array
+    items:
+      $ref: '#/definitions/BonPourItem'
+  EtatAvoirAchat:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatAvoirAchats:
+    type: array
+    items:
+      $ref: '#/definitions/EtatAvoirAchat'
+  Depense:
+    type: "object"
+    required:
+      - id
+      - dateDepense
+      - libelle
+      - montant
+      - description
+    properties:
+      id:
+        type: int
+      dateDepense:
+        type: date
+      libelle:
+        type: string
+      montant:
+        type: number
+      description:
+        type: string
+  Depenses:
+    type: array
+    items:
+      $ref: '#/definitions/Depense'
+  VenteItem:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - quantite
+      - quantiteAvoir
+      - quantiteVendue
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      quantite:
+        type: number
+      quantiteAvoir:
+        type: number
+      quantiteVendue:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  VenteItems:
+    type: array
+    items:
+      $ref: '#/definitions/VenteItem'
+  Devis:
+    type: "object"
+    required:
+      - id
+      - numero
+      - dateDevis
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      numero:
+        type: string
+      dateDevis:
+        type: date
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  Deviss:
+    type: array
+    items:
+      $ref: '#/definitions/Devis'
+  Depot:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - adresse
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      adresse:
+        type: string
+  Depots:
+    type: array
+    items:
+      $ref: '#/definitions/Depot'
+  AvoirAchatItem:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - quantite
+      - quantiteAvoir
+      - quantiteVendue
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      quantite:
+        type: number
+      quantiteAvoir:
+        type: number
+      quantiteVendue:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  AvoirAchatItems:
+    type: array
+    items:
+      $ref: '#/definitions/AvoirAchatItem'
+  ReglementAchat:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateReglement
+      - montant
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateReglement:
+        type: date
+      montant:
+        type: number
+      description:
+        type: string
+  ReglementAchats:
+    type: array
+    items:
+      $ref: '#/definitions/ReglementAchat'
+  InventaireItem:
+    type: "object"
+    required:
+      - id
+      - quantiteEstime
+      - quantiteReelle
+    properties:
+      id:
+        type: int
+      quantiteEstime:
+        type: number
+      quantiteReelle:
+        type: number
+  InventaireItems:
+    type: array
+    items:
+      $ref: '#/definitions/InventaireItem'
+  Fournisseur:
+    type: "object"
+    required:
+      - id
+      - ice
+      - nom
+      - telephone
+      - adresse
+      - creance
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      ice:
+        type: string
+      nom:
+        type: string
+      telephone:
+        type: string
+      adresse:
+        type: string
+      creance:
+        type: number
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Fournisseurs:
+    type: array
+    items:
+      $ref: '#/definitions/Fournisseur'
+  Produit:
+    type: "object"
+    required:
+      - id
+      - reference
+      - barCode
+      - designation
+      - quantite
+      - prixAchatMoyen
+      - prixVente
+      - pathPhoto
+      - seuilAlerte
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      barCode:
+        type: string
+      designation:
+        type: string
+      quantite:
+        type: number
+      prixAchatMoyen:
+        type: number
+      prixVente:
+        type: number
+      pathPhoto:
+        type: string
+      seuilAlerte:
+        type: number
+      description:
+        type: string
+  Produits:
+    type: array
+    items:
+      $ref: '#/definitions/Produit'
+  TypeTransaction:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  TypeTransactions:
+    type: array
+    items:
+      $ref: '#/definitions/TypeTransaction'
+  UniteMesure:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  UniteMesures:
+    type: array
+    items:
+      $ref: '#/definitions/UniteMesure'
+  Stock:
+    type: "object"
+    required:
+      - id
+      - quantite
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+  Stocks:
+    type: array
+    items:
+      $ref: '#/definitions/Stock'
+  Compte:
+    type: "object"
+    required:
+      - id
+      - numeroCompte
+      - solde
+    properties:
+      id:
+        type: int
+      numeroCompte:
+        type: string
+      solde:
+        type: number
+  Comptes:
+    type: array
+    items:
+      $ref: '#/definitions/Compte'
+  EtatCommande:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatCommandes:
+    type: array
+    items:
+      $ref: '#/definitions/EtatCommande'
+  ChequeEffet:
+    type: "object"
+    required:
+      - id
+      - numero
+      - dateEmission
+      - montant
+    properties:
+      id:
+        type: int
+      numero:
+        type: string
+      dateEmission:
+        type: date
+      montant:
+        type: number
+  ChequeEffets:
+    type: array
+    items:
+      $ref: '#/definitions/ChequeEffet'
+  TransactionFournisseur:
+    type: "object"
+    required:
+      - id
+      - dateEmission
+      - montant
+      - dateTransaction
+      - dateEncaissement
+      - pathPhoto
+      - description
+    properties:
+      id:
+        type: int
+      dateEmission:
+        type: date
+      montant:
+        type: number
+      dateTransaction:
+        type: date
+      dateEncaissement:
+        type: date
+      pathPhoto:
+        type: string
+      description:
+        type: string
+  TransactionFournisseurs:
+    type: array
+    items:
+      $ref: '#/definitions/TransactionFournisseur'
+  Inventaire:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateInventaire
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateInventaire:
+        type: date
+      description:
+        type: string
+  Inventaires:
+    type: array
+    items:
+      $ref: '#/definitions/Inventaire'
+  Transfert:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateTransfert
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateTransfert:
+        type: date
+      description:
+        type: string
+  Transferts:
+    type: array
+    items:
+      $ref: '#/definitions/Transfert'
+  TransfertItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+  TransfertItems:
+    type: array
+    items:
+      $ref: '#/definitions/TransfertItem'
+  Vente:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - codeVente
+      - dateFacture
+      - numeroFacture
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      codeVente:
+        type: string
+      dateFacture:
+        type: date
+      numeroFacture:
+        type: string
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  Ventes:
+    type: array
+    items:
+      $ref: '#/definitions/Vente'
+  Commande:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - numeroCommande
+      - dateCommande
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      numeroCommande:
+        type: string
+      dateCommande:
+        type: date
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  Commandes:
+    type: array
+    items:
+      $ref: '#/definitions/Commande'
+  AvoirAchat:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - codeAvoirAchat
+      - numeroFactureAvoirFournisseur
+      - dateFactureAvoirFournisseur
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      codeAvoirAchat:
+        type: string
+      numeroFactureAvoirFournisseur:
+        type: string
+      dateFactureAvoirFournisseur:
+        type: date
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  AvoirAchats:
+    type: array
+    items:
+      $ref: '#/definitions/AvoirAchat'
+  SortieProduit:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateSortieProduit
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateSortieProduit:
+        type: date
+      description:
+        type: string
+  SortieProduits:
+    type: array
+    items:
+      $ref: '#/definitions/SortieProduit'
+  Client:
+    type: "object"
+    required:
+      - id
+      - cin
+      - nom
+      - telephone
+      - adresse
+      - creance
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      cin:
+        type: string
+      nom:
+        type: string
+      telephone:
+        type: string
+      adresse:
+        type: string
+      creance:
+        type: number
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Clients:
+    type: array
+    items:
+      $ref: '#/definitions/Client'
+  EtatAchat:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatAchats:
+    type: array
+    items:
+      $ref: '#/definitions/EtatAchat'
+  Raison:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  Raisons:
+    type: array
+    items:
+      $ref: '#/definitions/Raison'
+  EntreeProduitItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+      - description
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+      description:
+        type: string
+  EntreeProduitItems:
+    type: array
+    items:
+      $ref: '#/definitions/EntreeProduitItem'
+  Marque:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  Marques:
+    type: array
+    items:
+      $ref: '#/definitions/Marque'
+  EntrepriseSociete:
+    type: "object"
+    required:
+      - id
+      - nom
+      - ice
+      - capital
+    properties:
+      id:
+        type: int
+      nom:
+        type: string
+      ice:
+        type: string
+      capital:
+        type: number
+  EntrepriseSocietes:
+    type: array
+    items:
+      $ref: '#/definitions/EntrepriseSociete'
+  ReglementAvoirVente:
+    type: "object"
+    required:
+      - id
+      - reference
+      - dateReglement
+      - montant
+      - description
+    properties:
+      id:
+        type: int
+      reference:
+        type: string
+      dateReglement:
+        type: date
+      montant:
+        type: number
+      description:
+        type: string
+  ReglementAvoirVentes:
+    type: array
+    items:
+      $ref: '#/definitions/ReglementAvoirVente'
+  BonPour:
+    type: "object"
+    required:
+      - id
+      - numero
+      - dateBonPour
+      - montantHt
+      - montantTva
+      - montantTtc
+      - description
+    properties:
+      id:
+        type: int
+      numero:
+        type: string
+      dateBonPour:
+        type: date
+      montantHt:
+        type: number
+      montantTva:
+        type: number
+      montantTtc:
+        type: number
+      description:
+        type: string
+  BonPours:
+    type: array
+    items:
+      $ref: '#/definitions/BonPour'
+  Tache:
+    type: "object"
+    required:
+      - id
+      - dateDebut
+      - dateFin
+      - description
+    properties:
+      id:
+        type: int
+      dateDebut:
+        type: date
+      dateFin:
+        type: date
+      description:
+        type: string
+  Taches:
+    type: array
+    items:
+      $ref: '#/definitions/Tache'
+  TypeInstrument:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  TypeInstruments:
+    type: array
+    items:
+      $ref: '#/definitions/TypeInstrument'
+  Collaborateur:
+    type: "object"
+    required:
+      - id
+      - nom
+      - prenom
+      - telephone
+      - adresse
+      - creance
+      - description
+      - credentialsNonExpired
+      - enabled
+      - accountNonExpired
+      - accountNonLocked
+      - passwordChanged
+      - username
+      - password
+    properties:
+      id:
+        type: int
+      nom:
+        type: string
+      prenom:
+        type: string
+      telephone:
+        type: string
+      adresse:
+        type: string
+      creance:
+        type: number
+      description:
+        type: string
+      credentialsNonExpired:
+        type: boolean
+      enabled:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      passwordChanged:
+        type: boolean
+      username:
+        type: string
+      password:
+        type: string
+  Collaborateurs:
+    type: array
+    items:
+      $ref: '#/definitions/Collaborateur'
+  EtatVente:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  EtatVentes:
+    type: array
+    items:
+      $ref: '#/definitions/EtatVente'
+  DevisItem:
+    type: "object"
+    required:
+      - id
+      - quantite
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      quantite:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  DevisItems:
+    type: array
+    items:
+      $ref: '#/definitions/DevisItem'
+  AvoirVenteItem:
+    type: "object"
+    required:
+      - id
+      - barCode
+      - quantite
+      - quantiteAvoir
+      - quantiteVendue
+      - prixUnitaireHt
+      - prixUnitaireTtc
+      - remise
+      - montantHt
+      - montantTtc
+    properties:
+      id:
+        type: int
+      barCode:
+        type: string
+      quantite:
+        type: number
+      quantiteAvoir:
+        type: number
+      quantiteVendue:
+        type: number
+      prixUnitaireHt:
+        type: number
+      prixUnitaireTtc:
+        type: number
+      remise:
+        type: number
+      montantHt:
+        type: number
+      montantTtc:
+        type: number
+  AvoirVenteItems:
+    type: array
+    items:
+      $ref: '#/definitions/AvoirVenteItem'
+  Banque:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  Banques:
+    type: array
+    items:
+      $ref: '#/definitions/Banque'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
